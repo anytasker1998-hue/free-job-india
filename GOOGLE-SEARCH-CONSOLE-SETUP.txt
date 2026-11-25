@@ -1,7 +1,0 @@
-Google Search Console setup:
-1. Replace YOUR-DOMAIN in sitemap.xml and robots.txt with your real domain.
-2. Open https://search.google.com/search-console and add your site (Domain property recommended).
-3. Verify ownership via DNS TXT record (copy the exact value Google provides into your domain DNS).
-4. In Search Console > Sitemaps, submit https://YOUR-DOMAIN/sitemap.xml
-5. Request indexing for your homepage.
-Note: Verification tokens cannot be generated without your Google account/domain.
