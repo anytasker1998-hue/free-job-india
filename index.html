@@ -28,7 +28,6 @@ button.danger{background:#b42318}
 <div>नौकरी खोजें और नई नौकरी पोस्ट करें</div>
 </header>
 <main>
-
 <div class="panel">
 <h2>नई नौकरी पोस्ट करें</h2>
 <p class="small">आपकी पोस्ट Admin Approval के बाद वेबसाइट पर दिखाई देगी।</p>
@@ -45,12 +44,10 @@ button.danger{background:#b42318}
 </form>
 <div id="postMsg"></div>
 </div>
-
 <div class="panel">
 <h2>Live Jobs</h2>
 <div id="liveJobs" class="jobs">लोड हो रहा है...</div>
 </div>
-
 <div class="panel">
 <h2>Admin Login</h2>
 <div id="loginBox">
@@ -59,7 +56,6 @@ button.danger{background:#b42318}
 <button id="loginBtn">Admin Login</button>
 <div id="loginMsg"></div>
 </div>
-
 <div id="adminBox" class="hidden">
 <p id="adminStatus"></p>
 <button id="logoutBtn">Logout</button>
@@ -67,7 +63,6 @@ button.danger{background:#b42318}
 <div id="pendingJobs" class="jobs"></div>
 </div>
 </div>
-
 </main>
 <script type="module">
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
@@ -75,7 +70,7 @@ import {getDatabase,ref,push,set,remove,onValue} from 'https://www.gstatic.com/f
 import {getAuth,signInWithEmailAndPassword,signOut,onAuthStateChanged} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
 
 const firebaseConfig={
-apiKey:'AIzaSyAy4xmG4l3A-6Scmb2H2PlUtuDpNOjN0_PM',
+apiKey:'AIzaSyAy4xmG4l3A-6Scmb2HplUtuDpNOjN0_PM',
 authDomain:'free-job-india-e8971.firebaseapp.com',
 databaseURL:'https://free-job-india-e8971-default-rtdb.firebaseio.com',
 projectId:'free-job-india-e8971',
