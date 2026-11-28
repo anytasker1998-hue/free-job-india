@@ -61,12 +61,48 @@ footer{margin-top:30px;background:var(--navy);color:#fff;text-align:center;paddi
 footer:after{content:"";display:block;height:4px;background:var(--green);position:absolute;bottom:0;left:0;right:0}
 @media(max-width:760px){.brand{padding:52px 12px 13px}.language{top:10px;right:10px}.post-layout{grid-template-columns:1fr}.post-aside{order:2}.post-form-panel{order:1}}
 @media(max-width:600px){.row,.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:auto}.brand h1{font-size:23px}nav.mainnav button{padding:11px 9px;font-size:12px}.panel{padding:14px}}
+
+/* Sidebar, free practice tools and monochrome theme */
+.site-layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:16px;align-items:start}
+#mainContent{min-width:0}
+.resource-sidebar{background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px;position:sticky;top:12px;box-shadow:0 2px 9px #00000008}
+.sidebar-heading{display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:800;color:var(--navy);padding:5px 4px 11px}
+.free-tag{background:#e8f5e9;color:#137333;border-radius:20px;padding:3px 8px;font-size:10px}
+.resource-sidebar button{display:block;width:100%;text-align:left;margin:5px 0;padding:10px 9px;background:#f5f7fa;color:var(--navy);border:1px solid #e1e7ef;font-size:13px}
+.resource-sidebar button:hover,.resource-sidebar button.active{background:#fff1e2;border-color:var(--saffron)}
+.sidebar-note{font-size:11px;color:var(--muted);line-height:1.4;margin:12px 4px 3px}
+.top-controls{position:absolute;left:16px;top:16px}
+.top-controls button{font-size:12px;padding:7px 9px;background:#222;color:#fff}
+.back-button{margin-bottom:14px;background:#5b6472;font-size:12px}
+.resource-intro{color:var(--muted);font-size:14px;line-height:1.6}
+.quiz-toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0}
+.quiz-toolbar select{padding:10px;border:1px solid #ccd4df;border-radius:6px;min-width:220px}
+.quiz-question{border:1px solid var(--line);border-radius:8px;padding:14px;margin:12px 0}
+.quiz-question h3{font-size:16px;margin:0 0 10px}
+.quiz-option{display:block;margin:8px 0;padding:9px;border:1px solid var(--line);border-radius:6px;cursor:pointer}
+.quiz-option input{width:auto;margin:0 8px 0 0}
+.quiz-result{padding:12px;border-radius:8px;background:#edf7ed;margin-top:12px;font-weight:700}
+.resource-links li{margin:8px 0;line-height:1.5}
+.theme-dark{--bg:#101318;--ink:#edf0f4;--muted:#b0bac8;--line:#343b46}
+.theme-dark header,.theme-dark .panel,.theme-dark .resource-sidebar,.theme-dark .job,.theme-dark .post-aside,.theme-dark .post-form-panel{background:#1b2028;color:#edf0f4;border-color:#343b46}
+.theme-dark .brand h1,.theme-dark h2,.theme-dark .job h3,.theme-dark .sidebar-heading{color:#f3f5f7}
+.theme-dark .brand p,.theme-dark .job .org,.theme-dark .job .details{color:#d0d6df}
+.theme-dark .statebar{background:#1b2028;border-color:#343b46}
+.theme-dark .statebar button,.theme-dark .resource-sidebar button,.theme-dark input,.theme-dark textarea,.theme-dark .quiz-toolbar select{background:#252c36;color:#f3f5f7;border-color:#46505e}
+.theme-dark .notice{background:#33291f;color:#fff0df}
+.theme-dark .quiz-option{border-color:#46505e}
+.theme-dark .quiz-result{background:#203528;color:#d9f7df}
+.theme-dark #sitePolicies{background:#1b2028}
+@media(max-width:850px){.site-layout{grid-template-columns:1fr}.resource-sidebar{position:static;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}.sidebar-heading,.sidebar-note{grid-column:1/-1}.resource-sidebar button{margin:0}.top-controls{left:10px}.brand{padding-top:55px}}
+@media(max-width:430px){.resource-sidebar{grid-template-columns:1fr 1fr}.language{top:10px}.top-controls{top:10px}}
+
 </style>
 </head>
 <body>
 <header>
   <div class="flag-strip" aria-hidden="true"></div>
   <div class="brand">
+    <div class="top-controls"><button id="themeToggle" type="button" aria-label="Toggle black and white theme">◐ Black / White</button></div>
     <div class="language" aria-label="Choose language"><button id="langEn" type="button">English</button><button id="langHi" class="active" type="button">हिंदी</button></div>
     <h1>🇮🇳 FREE JOB INDIA</h1>
     <p data-i18n="tagline">Latest Government & Private Jobs | Admit Card | Results | Employment Updates</p>
@@ -89,7 +125,19 @@ footer:after{content:"";display:block;height:4px;background:var(--green);positio
 <div class="statebar" aria-label="राज्य के अनुसार नौकरी">
   <button type="button" data-state="AP">AP</button><button type="button" data-state="AS">AS</button><button type="button" data-state="BR">BR</button><button type="button" data-state="CG">CG</button><button type="button" data-state="DL">DL</button><button type="button" data-state="GJ">GJ</button><button type="button" data-state="HP">HP</button><button type="button" data-state="HR">HR</button><button type="button" data-state="JH">JH</button><button type="button" data-state="KA">KA</button><button type="button" data-state="KL">KL</button><button type="button" data-state="MH">MH</button><button type="button" data-state="MP">MP</button><button type="button" data-state="OD">OD</button><button type="button" data-state="PB">PB</button><button type="button" data-state="RJ">RJ</button><button type="button" data-state="TN">TN</button><button type="button" data-state="TS">TS</button><button type="button" data-state="UK">UK</button><button type="button" data-state="UP">UP</button><button type="button" data-state="WB">WB</button>
 </div>
-<main>
+<main class="site-layout">
+  <aside class="resource-sidebar" aria-label="Free learning resources">
+    <div class="sidebar-heading"><span data-i18n="freeResources">FREE RESOURCES</span><span class="free-tag">FREE</span></div>
+    <button type="button" data-resource="daily" data-i18n="dailyQuiz">Daily Quiz</button>
+    <button type="button" data-resource="mock" data-i18n="mockTest">Free Mock Test</button>
+    <button type="button" data-resource="eligibility" data-i18n="eligibility">Eligibility</button>
+    <button type="button" data-resource="syllabus" data-i18n="syllabus">Syllabus</button>
+    <button type="button" data-resource="pattern" data-i18n="examPattern">Exam Pattern</button>
+    <button type="button" data-resource="selection" data-i18n="selection">Selection Process</button>
+    <button type="button" data-resource="papers" data-i18n="previousPapers">Previous Papers</button>
+    <p class="sidebar-note" data-i18n="freeNote">All practice resources are free.</p>
+  </aside>
+  <div id="mainContent">
   <section id="homePage">
     <div class="panel">
       <h2 data-i18n="jobheading">Latest Government & Private Jobs</h2>
@@ -149,12 +197,12 @@ footer:after{content:"";display:block;height:4px;background:var(--green);positio
   <h2 data-i18n="siteinfo">Website Information</h2>
   <div class="row">
     <div><h3 data-i18n="aboutTitle">About Us</h3><p data-i18n="aboutText">Free Job India shares government and private job notifications, admit cards, results and employment updates. Always verify details on the official recruiting organisation's website.</p></div>
-    <div><h3 data-i18n="contactTitle">Contact Us</h3><p data-i18n="contactText">For corrections, removal requests or website enquiries, contact the website owner using the genuine contact email published by the owner. Add your working email address here before applying for advertising.</p></div>
+    <div><h3 data-i18n="contactTitle">Contact Us</h3><p data-i18n="contactText">Location: Khordha District, Odisha, India<br>Email: <a href="mailto:anytasker1998@gmail.com">anytasker1998@gmail.com</a></p></div>
     <div><h3 data-i18n="privacyTitle">Privacy Policy</h3><p data-i18n="privacyText">Job-post submissions may be stored in Firebase for moderation and publication. Do not submit sensitive personal information. Third-party services, including Google advertising if enabled, may use cookies or similar technologies as described in their own policies.</p></div>
     <div><h3 data-i18n="disclaimerTitle">Disclaimer</h3><p data-i18n="disclaimerText">This website is an independent information platform and is not a government website. Vacancies are shared for information only. Applicants must confirm eligibility, dates, fees and application details from the official notification.</p></div>
     <div><h3 data-i18n="termsTitle">Terms & Conditions</h3><p data-i18n="termsText">Users must submit truthful, lawful and relevant job information. The administrator may reject or remove incomplete, misleading, duplicate or inappropriate submissions. Use official links and apply at your own discretion.</p></div>
   </div>
-  <p class="small" data-i18n="policyReminder">Website owner: replace the contact instruction with a real monitored email and publish complete, accurate policy details before submitting the site to AdSense.</p>
+  <p class="small" data-i18n="policyReminder">Please contact us by email for corrections, removal requests or website enquiries.</p>
 </section>
 <footer>
   <div class="policy-links"><a href="#sitePolicies" data-i18n="aboutTitle">About Us</a><a href="#sitePolicies" data-i18n="privacyTitle">Privacy Policy</a><a href="#sitePolicies" data-i18n="disclaimerTitle">Disclaimer</a><a href="#sitePolicies" data-i18n="termsTitle">Terms & Conditions</a><a href="#sitePolicies" data-i18n="contactTitle">Contact Us</a></div>
@@ -165,30 +213,34 @@ footer:after{content:"";display:block;height:4px;background:var(--green);positio
 <script>
 const translations = {
   en:{
+    freeResources:"FREE RESOURCES",dailyQuiz:"Daily Quiz",mockTest:"Free Mock Test",eligibility:"Eligibility",examPattern:"Exam Pattern",selection:"Selection Process",previousPapers:"Previous Papers",freeNote:"All practice resources are free.",backHome:"← Back to Home",
     tagline:"Latest Government & Private Jobs | Admit Card | Results | Employment Updates",
     home:"Home",latest:"Latest Jobs",admit:"Admit Card",results:"Results",answer:"Answer Key",syllabus:"Syllabus",examdates:"Exam Dates",reminder:"Last Date Reminder",category:"Jobs by Category",tools:"Tools",postjob:"Post Job",admin:"Admin",
     jobheading:"Latest Government & Private Jobs",jobintro:"Find new vacancies, eligibility, number of posts and application links here.",
     postasideTitle:"Post a Job — Free",postasideText:"Share genuine job information with job seekers across India.",posttip1:"Provide accurate company and job details.",posttip2:"Use an official application link only.",posttip3:"Your post is checked by the admin before publishing.",postasideNote:"Do not share passwords, payment details or misleading vacancies.",
     postheading:"Post a New Job",postnotice:"Your submitted job will appear in Live Jobs only after admin approval.",jobtitle:"Job Title",org:"Company / Organization / Department",location:"Location / City, State",salary:"Salary / Pay Scale (optional)",applylink:"Official Apply Link (optional)",details:"Total Posts, Advertisement No., Qualification, Age Limit, Application Dates and full details",submitjob:"Submit Job",approvalNote:"Your post will be published only after review.",
     siteinfo:"Website Information",aboutTitle:"About Us",aboutText:"Free Job India shares government and private job notifications, admit cards, results and employment updates. Always verify details on the official recruiting organisation's website.",
-    contactTitle:"Contact Us",contactText:"For corrections, removal requests or website enquiries, contact the website owner using the genuine contact email published by the owner. Add your working email address here before applying for advertising.",
+    contactTitle:"Contact Us",contactText:"Location: Khordha District, Odisha, India | Email: anytasker1998@gmail.com",
     privacyTitle:"Privacy Policy",privacyText:"Job-post submissions may be stored in Firebase for moderation and publication. Do not submit sensitive personal information. Third-party services, including Google advertising if enabled, may use cookies or similar technologies as described in their own policies.",
     disclaimerTitle:"Disclaimer",disclaimerText:"This website is an independent information platform and is not a government website. Vacancies are shared for information only. Applicants must confirm eligibility, dates, fees and application details from the official notification.",
     termsTitle:"Terms & Conditions",termsText:"Users must submit truthful, lawful and relevant job information. The administrator may reject or remove incomplete, misleading, duplicate or inappropriate submissions. Use official links and apply at your own discretion.",
-    policyReminder:"Website owner: replace the contact instruction with a real monitored email and publish complete, accurate policy details before submitting the site to AdSense."
+    policyReminder:"Please contact us by email for corrections, removal requests or website enquiries.",
+    chooseExam:"Choose exam category",startQuiz:"Start Free Test",submitAnswers:"Submit Answers",tryAgain:"Try Again",questionLabel:"Question",dailyTitle:"Daily Quiz",mockTitle:"Free Mock Test",quizIntro:"Choose a category and practise free. Questions shown here are practice questions, not official previous-year papers.",ctIntro:"Odisha D.El.Ed / CT Entrance: 20-question free practice set based on the published subject areas. This is not an official paper or a full-length 90-question test.",scoreText:"Your score",correctText:"Correct",wrongText:"Incorrect",selectAnswer:"Please select an answer for every question.",eligibilityText:"Eligibility depends on the official notification. Check age limit, education, nationality, category relaxation and required certificates on the recruiting body's website.",syllabusText:"Choose your exam category and download/read the syllabus only from the official recruitment notification or exam authority. Common subjects may include General Awareness, Reasoning, Mathematics and English.",patternText:"Exam pattern varies by recruitment. Confirm stages, marks, duration, negative marking and subject-wise weightage from the latest official notification.",selectionText:"Selection may include a written/CBT exam, skill or physical test, document verification and medical examination. The exact stages differ by post; check the official notice.",papersText:"Previous-year papers should be sourced from the official exam authority or clearly identified as practice material. No copyrighted paper is reproduced here.",generalCategory:"General Competitive Exams",sscCategory:"SSC",railCategory:"Railway",bankCategory:"Banking",policeCategory:"Police",teachCategory:"Teaching",pscCategory:"UPSC / State PSC",odishaCategory:"Odisha Government Jobs",otherCategory:"Other Exams",ctCategory:"Odisha D.El.Ed / CT Entrance"
   },
   hi:{
+    freeResources:"मुफ्त तैयारी सामग्री",dailyQuiz:"डेली क्विज",mockTest:"मुफ्त मॉक टेस्ट",eligibility:"योग्यता",examPattern:"परीक्षा पैटर्न",selection:"चयन प्रक्रिया",previousPapers:"पिछले प्रश्नपत्र",freeNote:"सभी अभ्यास सुविधाएँ मुफ्त हैं।",backHome:"← होम पर जाएँ",
     tagline:"सरकारी और प्राइवेट नौकरी | एडमिट कार्ड | रिजल्ट | रोजगार अपडेट",
     home:"होम",latest:"लेटेस्ट नौकरी",admit:"एडमिट कार्ड",results:"रिजल्ट",answer:"आंसर की",syllabus:"सिलेबस",examdates:"परीक्षा तिथि",reminder:"अंतिम तिथि रिमाइंडर",category:"श्रेणी के अनुसार नौकरी",tools:"टूल्स",postjob:"नौकरी पोस्ट करें",admin:"एडमिन",
     jobheading:"लेटेस्ट सरकारी और प्राइवेट नौकरियाँ",jobintro:"नई भर्तियाँ, योग्यता, पदों की संख्या और आवेदन लिंक यहाँ देखें।",
     postasideTitle:"मुफ्त में नौकरी पोस्ट करें",postasideText:"पूरे भारत के नौकरी खोजने वालों के साथ सही नौकरी की जानकारी साझा करें।",posttip1:"कंपनी और नौकरी की सही जानकारी दें।",posttip2:"केवल आधिकारिक आवेदन लिंक दें।",posttip3:"प्रकाशित होने से पहले एडमिन आपकी पोस्ट जाँचेगा।",postasideNote:"पासवर्ड, भुगतान विवरण या भ्रामक नौकरी की जानकारी न दें।",
     postheading:"नई नौकरी पोस्ट करें",postnotice:"आपकी भेजी गई नौकरी Admin Approval के बाद ही Live Jobs में दिखाई देगी।",jobtitle:"नौकरी का नाम / पद",org:"कंपनी / संस्था / विभाग",location:"स्थान / शहर, राज्य",salary:"वेतन / पे स्केल (वैकल्पिक)",applylink:"आधिकारिक आवेदन लिंक (वैकल्पिक)",details:"कुल पद, विज्ञापन संख्या, योग्यता, आयु सीमा, आवेदन तिथि और पूरी जानकारी",submitjob:"नौकरी पोस्ट करें",approvalNote:"जाँच के बाद ही पोस्ट प्रकाशित होगी।",
     siteinfo:"वेबसाइट की जानकारी",aboutTitle:"हमारे बारे में",aboutText:"Free Job India सरकारी और निजी नौकरी, एडमिट कार्ड, रिजल्ट और रोजगार अपडेट साझा करता है। सभी जानकारी संबंधित भर्ती संस्था की आधिकारिक वेबसाइट से जरूर जाँचें।",
-    contactTitle:"संपर्क करें",contactText:"सुधार, जानकारी हटाने या वेबसाइट संबंधी प्रश्नों के लिए वेबसाइट मालिक के प्रकाशित वास्तविक ईमेल पर संपर्क करें। विज्ञापन के लिए आवेदन करने से पहले यहाँ अपना चालू ईमेल जोड़ें।",
+    contactTitle:"संपर्क करें",contactText:"स्थान: खोरधा जिला, ओडिशा, भारत | ईमेल: anytasker1998@gmail.com",
     privacyTitle:"प्राइवेसी पॉलिसी",privacyText:"नौकरी पोस्ट की जानकारी समीक्षा और प्रकाशन के लिए Firebase में रखी जा सकती है। संवेदनशील निजी जानकारी न भेजें। Google विज्ञापन सहित तीसरी सेवाएँ चालू होने पर अपनी नीतियों के अनुसार कुकीज़ या समान तकनीक इस्तेमाल कर सकती हैं।",
     disclaimerTitle:"अस्वीकरण",disclaimerText:"यह एक स्वतंत्र जानकारी देने वाली वेबसाइट है, सरकारी वेबसाइट नहीं। नौकरियों की जानकारी केवल सुविधा के लिए दी जाती है। योग्यता, तारीख, फीस और आवेदन की जानकारी आधिकारिक नोटिफिकेशन से जाँचें।",
     termsTitle:"नियम और शर्तें",termsText:"यूजर सही, कानूनी और प्रासंगिक नौकरी की जानकारी दें। एडमिन अधूरी, भ्रामक, डुप्लिकेट या अनुचित पोस्ट को अस्वीकार या हटा सकता है। आधिकारिक लिंक का उपयोग करें और अपने विवेक से आवेदन करें।",
-    policyReminder:"वेबसाइट मालिक: AdSense आवेदन से पहले इस निर्देश की जगह अपना चालू ईमेल डालें और सभी नीतियों की जानकारी पूरी व सही करें।"
+    policyReminder:"सुधार या वेबसाइट संबंधी प्रश्नों के लिए हमें ईमेल करें।",
+    chooseExam:"परीक्षा की श्रेणी चुनें",startQuiz:"मुफ्त टेस्ट शुरू करें",submitAnswers:"जवाब जमा करें",tryAgain:"फिर से प्रयास करें",questionLabel:"प्रश्न",dailyTitle:"डेली क्विज",mockTitle:"मुफ्त मॉक टेस्ट",quizIntro:"श्रेणी चुनें और मुफ्त अभ्यास करें। ये अभ्यास प्रश्न हैं, आधिकारिक पुराने प्रश्नपत्र नहीं।",ctIntro:"ओडिशा D.El.Ed / CT प्रवेश: प्रकाशित विषयों पर आधारित 20 प्रश्नों का मुफ्त अभ्यास सेट। यह आधिकारिक प्रश्नपत्र या पूरा 90 प्रश्नों वाला टेस्ट नहीं है।",scoreText:"आपका स्कोर",correctText:"सही",wrongText:"गलत",selectAnswer:"कृपया सभी प्रश्नों के उत्तर चुनें।",eligibilityText:"योग्यता आधिकारिक नोटिफिकेशन पर निर्भर करती है। आयु सीमा, शिक्षा, राष्ट्रीयता, श्रेणी छूट और जरूरी प्रमाणपत्र भर्ती संस्था की वेबसाइट पर जाँचें।",syllabusText:"अपनी परीक्षा का सिलेबस आधिकारिक भर्ती नोटिफिकेशन या परीक्षा संस्था से ही देखें। सामान्य विषयों में सामान्य ज्ञान, रीजनिंग, गणित और अंग्रेजी हो सकते हैं।",patternText:"परीक्षा पैटर्न भर्ती के अनुसार बदलता है। चरण, अंक, समय, नेगेटिव मार्किंग और विषयों का वेटेज नवीनतम आधिकारिक नोटिफिकेशन से जाँचें।",selectionText:"चयन में लिखित/CBT परीक्षा, स्किल या फिजिकल टेस्ट, दस्तावेज सत्यापन और मेडिकल परीक्षा शामिल हो सकती है। सही चरण आधिकारिक नोटिस में देखें।",papersText:"पुराने प्रश्नपत्र आधिकारिक परीक्षा संस्था से प्राप्त करें। यहाँ कोई कॉपीराइट वाला प्रश्नपत्र प्रकाशित नहीं किया गया है।",generalCategory:"सामान्य प्रतियोगी परीक्षा",sscCategory:"SSC",railCategory:"रेलवे",bankCategory:"बैंकिंग",policeCategory:"पुलिस",teachCategory:"शिक्षक भर्ती",pscCategory:"UPSC / राज्य PSC",odishaCategory:"ओडिशा सरकारी नौकरी",otherCategory:"अन्य परीक्षाएँ",ctCategory:"ओडिशा D.El.Ed / CT प्रवेश परीक्षा"
   }
 };
 function setLanguage(lang){
@@ -204,6 +256,105 @@ document.getElementById("langEn").addEventListener("click",()=>setLanguage("en")
 document.getElementById("langHi").addEventListener("click",()=>setLanguage("hi"));
 let savedLanguage="hi";try{savedLanguage=localStorage.getItem("fji-language")||"hi"}catch(e){}
 setLanguage(savedLanguage);
+</script>
+
+
+<script>
+(function(){
+ const body=document.body, themeBtn=document.getElementById('themeToggle');
+ function applyTheme(mode){body.classList.toggle('theme-dark',mode==='dark');themeBtn.textContent=mode==='dark'?'◐ White Mode':'◐ Black Mode';try{localStorage.setItem('fji-theme',mode)}catch(e){}}
+ let saved='light';try{saved=localStorage.getItem('fji-theme')||'light'}catch(e){} applyTheme(saved);
+ themeBtn.addEventListener('click',()=>applyTheme(body.classList.contains('theme-dark')?'light':'dark'));
+
+ const questions=[
+  {q:"भारत का संविधान कब लागू हुआ?",o:["15 अगस्त 1947","26 जनवरी 1950","26 नवंबर 1949","2 अक्टूबर 1950"],a:1},
+  {q:"ओडिशा की राजधानी क्या है?",o:["कटक","पुरी","भुवनेश्वर","संबलपुर"],a:2},
+  {q:"भारत की मुद्रा कौन-सी है?",o:["डॉलर","रुपया","यूरो","येन"],a:1},
+  {q:"12 × 8 का मान कितना है?",o:["86","92","96","108"],a:2},
+  {q:"श्रृंखला पूरी करें: 2, 4, 8, 16, __",o:["18","24","30","32"],a:3},
+  {q:"भारतीय संसद के कितने सदन हैं?",o:["एक","दो","तीन","चार"],a:1},
+  {q:"CPU का पूरा नाम क्या है?",o:["Central Processing Unit","Computer Personal Unit","Central Program Utility","Control Processing User"],a:0},
+  {q:"भारत का राष्ट्रीय पशु कौन है?",o:["शेर","हाथी","बाघ","मोर"],a:2},
+  {q:"₹200 पर 10% छूट के बाद कीमत कितनी होगी?",o:["₹170","₹180","₹190","₹200"],a:1},
+  {q:"पानी का रासायनिक सूत्र क्या है?",o:["CO₂","O₂","H₂O","NaCl"],a:2}
+ ];
+ const ctQuestions=[
+  {q:"Choose the correct plural of ‘child’.|‘Child’ का सही बहुवचन चुनें।",o:["Childs / चाइल्ड्स","Children / चिल्ड्रेन","Childes / चाइल्ड्स","Childrens / चिल्ड्रेन्स"],a:1},
+  {q:"Choose the synonym of ‘brave’.|‘Brave’ का समानार्थी शब्द चुनें।",o:["Cowardly / डरपोक","Courageous / साहसी","Weak / कमजोर","Careless / लापरवाह"],a:1},
+  {q:"Which organisation prepares national curriculum frameworks in India? | भारत में राष्ट्रीय पाठ्यचर्या रूपरेखा तैयार करने वाली संस्था कौन है?",o:["NCERT","RBI","Election Commission","NITI Aayog"],a:0},
+  {q:"A child learns best when the teacher: | बच्चा सबसे अच्छा कब सीखता है?",o:["Only dictates notes / केवल नोट्स लिखवाए","Encourages active participation / सक्रिय भागीदारी को बढ़ावा दे","Punishes every mistake / हर गलती पर दंड दे","Avoids questions / प्रश्न पूछने से रोके"],a:1},
+  {q:"Find the next number: 3, 6, 12, 24, __ | अगली संख्या ज्ञात करें: 3, 6, 12, 24, __",o:["30","36","48","54"],a:2},
+  {q:"The Right to Education Act covers children in which age group? | शिक्षा का अधिकार अधिनियम किस आयु वर्ग के बच्चों पर लागू होता है?",o:["3–6 years / 3–6 वर्ष","6–14 years / 6–14 वर्ष","14–18 years / 14–18 वर्ष","0–3 years / 0–3 वर्ष"],a:1},
+  {q:"In a child-centred classroom, the teacher mainly acts as a: | बाल-केंद्रित कक्षा में शिक्षक मुख्यतः किसकी भूमिका निभाता है?",o:["Facilitator / मार्गदर्शक","Dictator / आदेश देने वाला","Silent observer only / केवल मौन दर्शक","Examiner only / केवल परीक्षक"],a:0},
+  {q:"What is 25% of 240? | 240 का 25% कितना है?",o:["40","50","60","80"],a:2},
+  {q:"The Indian Constitution describes India as a: | भारतीय संविधान भारत को किस रूप में वर्णित करता है?",o:["Monarchy / राजतंत्र","Sovereign, Socialist, Secular, Democratic Republic / संप्रभु, समाजवादी, धर्मनिरपेक्ष, लोकतांत्रिक गणराज्य","Military state / सैन्य राज्य","Colony / उपनिवेश"],a:1},
+  {q:"Which part of a plant mainly absorbs water from soil? | पौधे का कौन-सा भाग मुख्यतः मिट्टी से पानी सोखता है?",o:["Flower / फूल","Leaf / पत्ती","Root / जड़","Fruit / फल"],a:2},
+  {q:"‘ସୂର୍ଯ୍ୟ’ ଶବ୍ଦର ଅର୍ଥ କ’ଣ? | ‘ସୂର୍ଯ୍ୟ’ का अर्थ क्या है?",o:["ଚନ୍ଦ୍ର / चंद्रमा","ସୂର୍ଯ୍ୟ / सूर्य","ତାରା / तारा","ମେଘ / बादल"],a:1},
+  {q:"‘ଦିନ’ ଶବ୍ଦର ବିପରୀତ ଶବ୍ଦ କ’ଣ? | ‘दिन’ का विलोम शब्द क्या है?",o:["ସକାଳ / सुबह","ରାତି / रात","ଆଲୋକ / प्रकाश","ବର୍ଷ / वर्ष"],a:1},
+  {q:"Find the HCF of 12 and 18. | 12 और 18 का महत्तम समापवर्तक ज्ञात करें।",o:["3","6","9","12"],a:1},
+  {q:"The First War of Indian Independence is commonly associated with which year? | भारत का प्रथम स्वतंत्रता संग्राम सामान्यतः किस वर्ष से जुड़ा है?",o:["1757","1857","1885","1942"],a:1},
+  {q:"Which gas do green plants absorb during photosynthesis? | प्रकाश संश्लेषण के दौरान हरे पौधे कौन-सी गैस लेते हैं?",o:["Oxygen / ऑक्सीजन","Nitrogen / नाइट्रोजन","Carbon dioxide / कार्बन डाइऑक्साइड","Hydrogen / हाइड्रोजन"],a:2},
+  {q:"A student gives a wrong answer. What is the most helpful first response? | विद्यार्थी गलत उत्तर देता है। शिक्षक की सबसे उपयोगी पहली प्रतिक्रिया क्या होगी?",o:["Insult the student / विद्यार्थी का अपमान करना","Find the misunderstanding and guide the student / गलतफहमी समझकर मार्गदर्शन देना","Stop the student from answering / उत्तर देने से रोकना","Ignore the student always / हमेशा अनदेखा करना"],a:1},
+  {q:"Which is the largest planet in the Solar System? | सौरमंडल का सबसे बड़ा ग्रह कौन-सा है?",o:["Earth / पृथ्वी","Mars / मंगल","Jupiter / बृहस्पति","Venus / शुक्र"],a:2},
+  {q:"If 5 notebooks cost ₹100, what is the cost of 8 notebooks at the same rate? | 5 कॉपियों की कीमत ₹100 है, तो उसी दर से 8 कॉपियों की कीमत क्या होगी?",o:["₹120","₹140","₹160","₹180"],a:2},
+  {q:"The main purpose of formative assessment is to: | सतत/रचनात्मक मूल्यांकन का मुख्य उद्देश्य क्या है?",o:["Rank students only / केवल रैंक देना","Improve learning during the teaching process / शिक्षण के दौरान सीखने में सुधार करना","Replace all teaching / पूरा शिक्षण बदलना","Punish low scorers / कम अंक वालों को दंड देना"],a:1},
+  {q:"Which imaginary line divides Earth into Northern and Southern Hemispheres? | कौन-सी काल्पनिक रेखा पृथ्वी को उत्तरी और दक्षिणी गोलार्ध में बाँटती है?",o:["Tropic of Cancer / कर्क रेखा","Equator / भूमध्य रेखा","Prime Meridian / प्रधान मध्याह्न रेखा","Arctic Circle / आर्कटिक वृत्त"],a:1}
+ ];
+ const labels={en:{daily:"Daily Quiz",mock:"Free Mock Test"},hi:{daily:"डेली क्विज",mock:"मुफ्त मॉक टेस्ट"}};
+ let currentLang=document.documentElement.lang||'hi', activeQuestions=[];
+ function t(k){const node=document.querySelector('[data-i18n="'+k+'"]');try{return (translations[currentLang]&&translations[currentLang][k])||(node?node.textContent:k)}catch(e){return node?node.textContent:k}}
+ function showResource(type){
+   document.getElementById('homePage').classList.add('hidden');
+   document.getElementById('postPage').classList.add('hidden');
+   document.getElementById('adminPage').classList.add('hidden');
+   document.getElementById('resourcePage').classList.remove('hidden');
+   document.querySelectorAll('[data-resource]').forEach(b=>b.classList.toggle('active',b.dataset.resource===type));
+   const title=document.getElementById('resourceTitle'), box=document.getElementById('resourceBody');
+   const content={
+    eligibility:['Eligibility','योग्यता','eligibilityText'],
+    syllabus:['Syllabus','सिलेबस','syllabusText'],
+    pattern:['Exam Pattern','परीक्षा पैटर्न','patternText'],
+    selection:['Selection Process','चयन प्रक्रिया','selectionText'],
+    papers:['Previous Papers','पिछले प्रश्नपत्र','papersText']
+   };
+   if(type==='mock'||type==='daily'){title.textContent=type==='mock'?t('mockTitle'):t('dailyTitle');renderQuiz(box,type);return;}
+   const item=content[type];title.textContent=currentLang==='en'?item[0]:item[1];box.innerHTML='<p class="resource-intro">'+t(item[2])+'</p><p class="resource-intro">For accurate details, always follow the latest official notification.</p>';
+ }
+ function renderQuiz(box,type){
+   const categoryKeys=['generalCategory','sscCategory','railCategory','bankCategory','policeCategory','teachCategory','pscCategory','odishaCategory','ctCategory','otherCategory'];
+   const opts=categoryKeys.map(k=>'<option value="'+k+'">'+t(k)+'</option>').join('');
+   box.innerHTML='<p class="resource-intro">'+t('quizIntro')+'</p><div class="quiz-toolbar"><select id="examCategory" aria-label="Exam category">'+opts+'</select><button id="startQuiz">'+t('startQuiz')+'</button></div><div id="quizQuestions"></div><div id="quizFeedback" aria-live="polite"></div>';
+   document.getElementById('examCategory').value='ctCategory';
+   document.getElementById('startQuiz').onclick=()=>{
+    const selectedCategory=document.getElementById('examCategory').value;
+    activeQuestions=(selectedCategory==='ctCategory'?ctQuestions:questions).slice(0,selectedCategory==='ctCategory'?20:10);
+    if(selectedCategory==='ctCategory') document.querySelector('.resource-intro').textContent=t('ctIntro');
+    if(type==='daily'){
+      const day=Math.floor(Date.now()/86400000);
+      const shift=day%activeQuestions.length;
+      activeQuestions=activeQuestions.slice(shift).concat(activeQuestions.slice(0,shift));
+    }
+    const qbox=document.getElementById('quizQuestions');
+    qbox.innerHTML=activeQuestions.map((q,i)=>{const qtext=q.q.includes('|')?q.q.split('|')[currentLang==='en'?0:1]:q.q;return '<div class="quiz-question"><h3>'+t('questionLabel')+' '+(i+1)+'. '+qtext+'</h3>'+q.o.map((op,j)=>'<label class="quiz-option"><input type="radio" name="q'+i+'" value="'+j+'">'+op+'</label>').join('')+'</div>';}).join('')+'<button id="submitQuiz">'+t('submitAnswers')+'</button>';
+    document.getElementById('quizFeedback').textContent='';
+    document.getElementById('submitQuiz').onclick=()=>{
+      let score=0,answered=0;
+      activeQuestions.forEach((q,i)=>{const sel=document.querySelector('input[name="q'+i+'"]:checked');if(sel){answered++;if(Number(sel.value)===q.a)score++;}});
+      if(answered!==activeQuestions.length){document.getElementById('quizFeedback').textContent=t('selectAnswer');return;}
+      document.getElementById('quizFeedback').innerHTML='<div class="quiz-result">'+t('scoreText')+': '+score+'/'+activeQuestions.length+' — '+t('correctText')+': '+score+' — '+t('wrongText')+': '+(activeQuestions.length-score)+'<br><button id="retryQuiz" style="margin-top:10px">'+t('tryAgain')+'</button></div>';
+      document.getElementById('retryQuiz').onclick=()=>renderQuiz(box,type);
+    };
+   };
+ }
+ document.querySelectorAll('[data-resource]').forEach(b=>b.addEventListener('click',()=>showResource(b.dataset.resource)));
+ document.getElementById('backHome').addEventListener('click',()=>{
+  document.getElementById('resourcePage').classList.add('hidden');document.getElementById('homePage').classList.remove('hidden');
+  document.querySelectorAll('[data-resource]').forEach(b=>b.classList.remove('active'));
+ });
+ // Keep the resource panel language in sync with the header selector.
+ document.getElementById('langEn').addEventListener('click',()=>{currentLang='en';});
+ document.getElementById('langHi').addEventListener('click',()=>{currentLang='hi';});
+})();
 </script>
 
 <script type="module">
@@ -224,7 +375,7 @@ measurementId:'G-9BD370Z2PW'
 const ADMIN_UID='uMG9e7MljNauuHN7Ue9OeuVJgPJ3';
 const app=initializeApp(firebaseConfig),db=getDatabase(app),auth=getAuth(app);
 const $=id=>document.getElementById(id);
-const pages={home:$('homePage'),post:$('postPage'),admin:$('adminPage')};
+const pages={home:$('homePage'),post:$('postPage'),admin:$('adminPage'),resource:$('resourcePage')};
 const navs={home:$('homeNav'),post:$('postNav'),admin:$('adminNav')};
 
 function showPage(name){
