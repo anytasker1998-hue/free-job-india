@@ -1,3 +1,4 @@
+
 User-agent: *
 Allow: /
-Sitemap: https://YOUR-DOMAIN/sitemap.xml
+Sitemap: https://anytasker1998-hue.github.io/free-job-india/sitemap.xml
