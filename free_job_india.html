@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free Job India</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#172033}header{background:#123d75;color:white;padding:24px 16px;text-align:center}header h1{margin:0 0 8px}main{max-width:1000px;margin:20px auto;padding:0 14px}.panel{background:white;border-radius:12px;padding:18px;margin:16px 0;box-shadow:0 2px 12px #0001}input,textarea,select,button{font:inherit;padding:10px;margin:6px 0;width:100%;border:1px solid #ccd4df;border-radius:8px}button{background:#1559a6;color:white;border:0;cursor:pointer;font-weight:bold}button.secondary{background:#596579}button.danger{background:#b42318}.jobs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}.job{border:1px solid #dbe2ec;border-radius:10px;padding:14px;background:#fff}.job h3{margin-top:0;color:#1559a6}.small{font-size:13px;color:#667085}.hidden{display:none}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media(max-width:600px){.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><h1>Free Job India</h1><div>नौकरी खोजें और नई नौकरी पोस्ट करें</div></header>
+<main>
+<div class="panel"><h2>नई नौकरी पोस्ट करें</h2><p class="small">आपकी पोस्ट Admin Approval के बाद वेबसाइट पर दिखाई देगी।</p>
+<form id="postForm"><input id="title" placeholder="Job Title / पद का नाम" required><input id="org" placeholder="Company / Organization" required><div class="row"><input id="location" placeholder="Location / शहर" required><input id="salary" placeholder="Salary (optional)"></div><input id="apply" placeholder="Apply link / संपर्क (optional)"><textarea id="details" rows="4" placeholder="Job details, qualification, deadline आदि" required></textarea><button type="submit">नौकरी पोस्ट करें</button></form><div id="postMsg"></div></div>
+<div class="panel"><h2>Live Jobs</h2><div id="liveJobs" class="jobs">लोड हो रहा है...</div></div>
+<div class="panel"><h2>Admin Login</h2><div id="loginBox"><input id="email" type="email" placeholder="Admin Email"><input id="password" type="password" placeholder="Password"><button id="loginBtn">Admin Login</button><div id="loginMsg"></div></div><div id="adminBox" class="hidden"><p id="adminStatus"></p><button class="secondary" id="logoutBtn">Logout</button><h3>Pending Posts</h3><div id="pendingJobs" class="jobs"></div></div></div>
+</main>
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+import { getFirestore, collection, addDoc, query, where, orderBy, onSnapshot, updateDoc, deleteDoc, doc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+// नीचे Firebase Console > Project settings > Your apps से अपना config डालें.
+const firebaseConfig = {
+  apiKey: 'PASTE_API_KEY_HERE',
+  authDomain: 'PASTE_AUTH_DOMAIN_HERE',
+  projectId: 'PASTE_PROJECT_ID_HERE',
+  storageBucket: 'PASTE_STORAGE_BUCKET_HERE',
+  messagingSenderId: 'PASTE_MESSAGING_SENDER_ID_HERE',
+  appId: 'PASTE_APP_ID_HERE'
+};
+const app=initializeApp(firebaseConfig), db=getFirestore(app), auth=getAuth(app);
+const jobsRef=collection(db,'jobs');
+const postForm=document.getElementById('postForm'), postMsg=document.getElementById('postMsg');
+const titleEl=document.getElementById('title'), orgEl=document.getElementById('org'), locationEl=document.getElementById('location'), salaryEl=document.getElementById('salary'), applyEl=document.getElementById('apply'), detailsEl=document.getElementById('details'), liveJobsEl=document.getElementById('liveJobs'), loginBoxEl=document.getElementById('loginBox'), adminBoxEl=document.getElementById('adminBox'), emailEl=document.getElementById('email'), passwordEl=document.getElementById('password'), loginBtnEl=document.getElementById('loginBtn'), loginMsgEl=document.getElementById('loginMsg'), logoutBtnEl=document.getElementById('logoutBtn'), adminStatusEl=document.getElementById('adminStatus'), pendingJobsEl=document.getElementById('pendingJobs');
+function escapeHtml(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function jobCard(j,id,admin=false){return `<article class="job"><h3>${escapeHtml(j.title)}</h3><b>${escapeHtml(j.org)}</b><p>📍 ${escapeHtml(j.location)}</p>${j.salary?`<p>💰 ${escapeHtml(j.salary)}</p>`:''}<p>${escapeHtml(j.details)}</p>${j.apply?`<p>Apply: ${escapeHtml(j.apply)}</p>`:''}${admin?`<button data-approve="${id}">Approve</button><button class="danger" data-delete="${id}">Delete</button>`:''}</article>`}
+postForm.addEventListener('submit',async e=>{e.preventDefault();postMsg.textContent='पोस्ट भेजी जा रही है...';try{await addDoc(jobsRef,{title:title:titleEl.value.trim(),org:orgEl.value.trim(),location:locationEl.value.trim(),salary:salaryEl.value.trim(),apply:applyEl.value.trim(),details:detailsEl.value.trim(),status:'pending',createdAt:serverTimestamp()});postForm.reset();postMsg.textContent='पोस्ट भेज दी गई। Admin Approval के बाद दिखाई देगी।';}catch(err){postMsg.textContent='पोस्ट नहीं हो सकी: '+err.message;}});
+onSnapshotSafe();
+function onSnapshotSafe(){onSnapshot(query(jobsRef,where('status','==','approved')),snap=>{liveJobsEl.innerHTML=snap.empty?'अभी कोई approved नौकरी उपलब्ध नहीं है.':snap.docs.map(d=>jobCard(d.data(),d.id)).join('');},err=>liveJobsEl.textContent='Jobs load error: '+err.message);}
+loginBtnEl.addEventListener('click',async()=>{loginMsgEl.textContent='Login...';try{await signInWithEmailAndPassword(auth,emailEl.value,passwordEl.value);loginMsgEl.textContent='';}catch(e){loginMsgEl.textContent='Login error: '+e.message;}});
+logoutBtnEl.addEventListener('click',()=>signOut(auth));
+onAuthState();
+function onAuthState(){onAuthStateChanged(auth,user=>{loginBoxEl.classList.toggle('hidden',!!user);adminBoxEl.classList.toggle('hidden',!user);if(user){adminStatusEl.textContent='Admin logged in: '+user.email;listenPending();}else{pendingJobsEl.innerHTML='';}})}
+function listenPending(){onSnapshot(query(jobsRef,where('status','==','pending')),snap=>{pendingJobsEl.innerHTML=snap.empty?'कोई Pending post नहीं है.':snap.docs.map(d=>jobCard(d.data(),d.id,true)).join('');pendingJobsEl.querySelectorAll('[data-approve]').forEach(b=>b.onclick=async()=>{try{await updateDoc(doc(db,'jobs',b.dataset.approve),{status:'approved'});}catch(e){alert('Approve error: '+e.message)}});pendingJobsEl.querySelectorAll('[data-delete]').forEach(b=>b.onclick=async()=>{if(confirm('इस पोस्ट को Delete करें?'))try{await deleteDoc(doc(db,'jobs',b.dataset.delete));}catch(e){alert('Delete error: '+e.message)}});},err=>pendingJobsEl.textContent='Pending load error: '+err.message);}
+</script>
+</body></html>
