@@ -3,78 +3,127 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Free Job India shares government and private job updates, recruitment notifications, admit cards, results and employment information across India.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#17365d">
+<meta property="og:title" content="Free Job India | Latest Government & Private Jobs">
+<meta property="og:description" content="Government and private job notifications, admit cards, results and employment updates.">
 <title>Free Job India | Latest Government & Private Jobs</title>
 <style>
-:root{--saffron:#ff9933;--green:#138808;--navy:#123d75;--ink:#172033;--muted:#667085;--bg:#f4f7fb}
+:root{--saffron:#ff9933;--white:#fff;--green:#138808;--navy:#17365d;--ink:#172033;--muted:#667085;--bg:#f5f7fa;--line:#dce3eb}
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--ink)}
-header{background:linear-gradient(110deg,var(--saffron) 0 33.33%,#fff 33.33% 66.66%,var(--green) 66.66%);padding:5px 0 0}
-.brand{background:#fffE;text-align:center;padding:19px 14px 15px}
-.brand h1{margin:0;color:var(--navy);font-size:30px;letter-spacing:.5px}
-.brand p{margin:7px 0 0;color:#344054;font-weight:600}
-nav{background:var(--navy);display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:10px}
-nav button{width:auto;margin:0;padding:10px 16px;background:transparent;border:1px solid #ffffff55;color:#fff;border-radius:7px}
-nav button.active,nav button:hover{background:#fff;color:var(--navy)}
-main{max-width:1050px;margin:22px auto;padding:0 14px}
-.panel{background:#fff;border-radius:12px;padding:19px;margin:16px 0;box-shadow:0 2px 12px #0000000d}
-h2{color:var(--navy);margin:0 0 15px}
-input,textarea{font:inherit;padding:11px;margin:6px 0;width:100%;border:1px solid #ccd4df;border-radius:8px}
-button,.action{font:inherit;padding:11px 15px;border:0;border-radius:8px;background:var(--navy);color:#fff;cursor:pointer;font-weight:700;text-decoration:none;display:inline-block}
+a{color:#0752a4}
+header{background:#fff;border-bottom:1px solid var(--line)}
+.flag-strip{height:7px;background:linear-gradient(to bottom,var(--saffron) 0 33.33%,#fff 33.33% 66.66%,var(--green) 66.66% 100%)}
+.brand{padding:15px 16px 13px;text-align:center;position:relative}
+.brand h1{margin:0;color:var(--navy);font-size:28px;letter-spacing:.4px}
+.brand p{margin:6px 0 0;color:#475467;font-size:13px;font-weight:600}
+.language{position:absolute;right:16px;top:16px;display:flex;gap:5px}
+.language button{padding:7px 10px;background:#fff;color:var(--navy);border:1px solid #cbd5e1;border-radius:6px;font-size:12px}
+.language button.active{background:var(--navy);color:#fff}
+nav.mainnav{background:var(--navy);display:flex;align-items:center;gap:0;flex-wrap:nowrap;overflow-x:auto;padding:0 8px;white-space:nowrap;border-top:4px solid var(--saffron);border-bottom:4px solid var(--green)}
+nav.mainnav button{flex:0 0 auto;width:auto;margin:0;padding:11px 10px;border:0;border-radius:0;background:transparent;color:#fff;font-size:13px;font-weight:700}
+nav.mainnav button:hover,nav.mainnav button.active{background:#0e2746;color:#fff}
+.statebar{display:flex;gap:4px;overflow-x:auto;white-space:nowrap;padding:7px 10px;background:#fff;border-bottom:1px solid var(--line)}
+.statebar button{flex:0 0 auto;padding:5px 9px;margin:0;background:#fff;color:#174b87;border:1px solid #c9d6e6;border-radius:5px;font-size:12px;font-weight:600}
+.statebar button:hover,.statebar button.active{background:#e9f5e8;border-color:var(--green)}
+main{max-width:1160px;margin:20px auto;padding:0 14px;min-height:55vh}
+.panel{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px;margin:14px 0;box-shadow:0 2px 9px #00000008}
+h2{color:var(--navy);margin:0 0 14px;font-size:21px}
+input,textarea{font:inherit;padding:10px 11px;margin:4px 0;width:100%;border:1px solid #ccd4df;border-radius:6px;background:#fff}
+input:focus,textarea:focus{outline:2px solid #ffcf9e;border-color:var(--saffron)}
+button,.action{font:inherit;padding:10px 14px;border:0;border-radius:6px;background:var(--navy);color:#fff;cursor:pointer;font-weight:700;text-decoration:none;display:inline-block}
 button:hover,.action:hover{filter:brightness(1.08)}
 button.danger{background:#b42318}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.jobs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
-.job{border:1px solid #dbe2ec;border-top:5px solid var(--saffron);border-radius:10px;padding:16px;background:#fff}
-.job h3{margin:0 0 9px;color:var(--navy);line-height:1.35}
-.job .org{font-weight:700;color:#344054}
-.job p{line-height:1.55;margin:8px 0;overflow-wrap:anywhere}
-.job .details{white-space:pre-wrap;color:#344054}
-.job .apply{background:var(--green);margin-top:8px}
-.small{font-size:13px;color:var(--muted)}
-.hidden{display:none!important}
-.notice{background:#fff7ed;border-left:4px solid var(--saffron);padding:12px;border-radius:7px}
+.jobs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.job{border:1px solid #dbe2ec;border-top:4px solid var(--saffron);border-bottom:2px solid var(--green);border-radius:8px;padding:15px;background:#fff}
+.job h3{margin:0 0 9px;color:var(--navy);line-height:1.35;font-size:18px}
+.job .org{font-weight:700;color:#344054}.job p{line-height:1.55;margin:8px 0;overflow-wrap:anywhere}.job .details{white-space:pre-wrap;color:#344054}.job .apply{background:var(--green);margin-top:8px}
+.small{font-size:13px;color:var(--muted)}.hidden{display:none!important}
+.notice{background:#fff8ef;border-left:4px solid var(--saffron);padding:11px 12px;border-radius:5px}
 #loginMsg,#postMsg{margin-top:8px}
-footer{margin-top:30px;background:var(--navy);color:#fff;text-align:center;padding:18px}
-@media(max-width:600px){.row{grid-template-columns:1fr}.brand h1{font-size:25px}nav button{flex:1}}
+.post-layout{display:grid;grid-template-columns:minmax(220px,.72fr) minmax(0,1.6fr);gap:16px;align-items:start}
+.post-aside{background:linear-gradient(160deg,#fff8ef,#fff 55%,#eff8ed);border:1px solid var(--line);border-radius:9px;padding:17px}
+.post-aside h3{margin:0 0 8px;color:var(--navy)}
+.post-aside ul{padding-left:19px;line-height:1.7;font-size:14px}
+.post-form-panel{margin:0;padding:18px}
+.post-form-panel h2{margin-bottom:10px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px}
+.form-grid .full{grid-column:1/-1}
+.form-grid label{display:block;font-size:13px;font-weight:700;color:#344054;margin-top:5px}
+.form-grid input,.form-grid textarea{margin-top:4px}
+.form-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:8px}
+.policy-links{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:0 auto 12px}
+.policy-links a{color:#fff;font-size:13px}
+footer{margin-top:30px;background:var(--navy);color:#fff;text-align:center;padding:18px;border-top:5px solid var(--saffron);position:relative}
+footer:after{content:"";display:block;height:4px;background:var(--green);position:absolute;bottom:0;left:0;right:0}
+@media(max-width:760px){.brand{padding:52px 12px 13px}.language{top:10px;right:10px}.post-layout{grid-template-columns:1fr}.post-aside{order:2}.post-form-panel{order:1}}
+@media(max-width:600px){.row,.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:auto}.brand h1{font-size:23px}nav.mainnav button{padding:11px 9px;font-size:12px}.panel{padding:14px}}
 </style>
 </head>
 <body>
 <header>
+  <div class="flag-strip" aria-hidden="true"></div>
   <div class="brand">
+    <div class="language" aria-label="Choose language"><button id="langEn" type="button">English</button><button id="langHi" class="active" type="button">हिंदी</button></div>
     <h1>🇮🇳 FREE JOB INDIA</h1>
-    <p>भारत की Government और Private Jobs की जानकारी</p>
+    <p data-i18n="tagline">Latest Government & Private Jobs | Admit Card | Results | Employment Updates</p>
   </div>
 </header>
-<nav>
-  <button id="homeNav" class="active" type="button">Home / Latest Jobs</button>
-  <button id="postNav" type="button">नई नौकरी पोस्ट करें</button>
-  <button id="adminNav" type="button">Admin</button>
+<nav class="mainnav" aria-label="मुख्य मेन्यू">
+  <button id="homeNav" class="active" type="button" data-i18n="home">Home</button>
+  <button type="button" data-info="Latest Jobs" data-i18n="latest">Latest Jobs</button>
+  <button type="button" data-info="Admit Card" data-i18n="admit">Admit Card</button>
+  <button type="button" data-info="Results" data-i18n="results">Results</button>
+  <button type="button" data-info="Answer Key" data-i18n="answer">Answer Key</button>
+  <button type="button" data-info="Syllabus" data-i18n="syllabus">Syllabus</button>
+  <button type="button" data-info="Exam Dates" data-i18n="examdates">Exam Dates</button>
+  <button type="button" data-info="Last Date Reminder" data-i18n="reminder">Last Date Reminder</button>
+  <button type="button" data-info="Jobs by Category" data-i18n="category">Jobs by Category</button>
+  <button type="button" data-info="Tools" data-i18n="tools">Tools</button>
+  <button id="postNav" type="button" data-i18n="postjob">Post Job</button>
+  <button id="adminNav" type="button" data-i18n="admin">Admin</button>
 </nav>
+<div class="statebar" aria-label="राज्य के अनुसार नौकरी">
+  <button type="button" data-state="AP">AP</button><button type="button" data-state="AS">AS</button><button type="button" data-state="BR">BR</button><button type="button" data-state="CG">CG</button><button type="button" data-state="DL">DL</button><button type="button" data-state="GJ">GJ</button><button type="button" data-state="HP">HP</button><button type="button" data-state="HR">HR</button><button type="button" data-state="JH">JH</button><button type="button" data-state="KA">KA</button><button type="button" data-state="KL">KL</button><button type="button" data-state="MH">MH</button><button type="button" data-state="MP">MP</button><button type="button" data-state="OD">OD</button><button type="button" data-state="PB">PB</button><button type="button" data-state="RJ">RJ</button><button type="button" data-state="TN">TN</button><button type="button" data-state="TS">TS</button><button type="button" data-state="UK">UK</button><button type="button" data-state="UP">UP</button><button type="button" data-state="WB">WB</button>
+</div>
 <main>
   <section id="homePage">
     <div class="panel">
-      <h2>Latest Government & Private Jobs</h2>
-      <p class="small">नई भर्तियाँ, योग्यता, पदों की संख्या और आवेदन लिंक यहाँ देखें।</p>
+      <h2 data-i18n="jobheading">Latest Government & Private Jobs</h2>
+      <p class="small" data-i18n="jobintro">नई भर्तियाँ, योग्यता, पदों की संख्या और आवेदन लिंक यहाँ देखें।</p>
       <div id="liveJobs" class="jobs">नौकरियाँ लोड हो रही हैं...</div>
     </div>
   </section>
 
   <section id="postPage" class="hidden">
-    <div class="panel">
-      <h2>नई नौकरी पोस्ट करें</h2>
-      <p class="notice">आपकी भेजी गई नौकरी Admin Approval के बाद ही Live Jobs में दिखाई देगी।</p>
-      <form id="postForm">
-        <input id="title" placeholder="Job Title / भर्ती का नाम" required>
-        <input id="org" placeholder="Company / Organization / विभाग" required>
-        <div class="row">
-          <input id="location" placeholder="Location / शहर" required>
-          <input id="salary" placeholder="Salary / Pay Scale (optional)">
-        </div>
-        <input id="apply" placeholder="Official Apply Link (optional)">
-        <textarea id="details" rows="7" placeholder="Total Posts, Advt No., Qualification, Age Limit, Application Dates आदि पूरी जानकारी लिखें" required></textarea>
-        <button type="submit">नौकरी पोस्ट करें</button>
-      </form>
-      <div id="postMsg" role="status"></div>
+    <div class="post-layout">
+      <aside class="post-aside">
+        <h3 data-i18n="postasideTitle">Post a Job — Free</h3>
+        <p class="small" data-i18n="postasideText">Share genuine job information with job seekers across India.</p>
+        <ul>
+          <li data-i18n="posttip1">Provide accurate company and job details.</li>
+          <li data-i18n="posttip2">Use an official application link only.</li>
+          <li data-i18n="posttip3">Your post is checked by the admin before publishing.</li>
+        </ul>
+        <p class="small" data-i18n="postasideNote">Do not share passwords, payment details or misleading vacancies.</p>
+      </aside>
+      <div class="panel post-form-panel">
+        <h2 data-i18n="postheading">नई नौकरी पोस्ट करें</h2>
+        <p class="notice" data-i18n="postnotice">आपकी भेजी गई नौकरी Admin Approval के बाद ही Live Jobs में दिखाई देगी।</p>
+        <form id="postForm" class="form-grid">
+          <label class="full"><span data-i18n="jobtitle">Job Title / भर्ती का नाम</span><input id="title" data-i18n-placeholder="jobtitle" placeholder="Job Title / भर्ती का नाम" required maxlength="120"></label>
+          <label class="full"><span data-i18n="org">Company / Organization / विभाग</span><input id="org" data-i18n-placeholder="org" placeholder="Company / Organization / विभाग" required maxlength="160"></label>
+          <label><span data-i18n="location">Location / शहर, राज्य</span><input id="location" data-i18n-placeholder="location" placeholder="Location / शहर, राज्य" required maxlength="120"></label>
+          <label><span data-i18n="salary">Salary / Pay Scale (optional)</span><input id="salary" data-i18n-placeholder="salary" placeholder="Salary / Pay Scale (optional)" maxlength="100"></label>
+          <label class="full"><span data-i18n="applylink">Official Apply Link (optional)</span><input id="apply" type="url" data-i18n-placeholder="applylink" placeholder="https://official-website.gov.in/..." maxlength="500"></label>
+          <label class="full"><span data-i18n="details">Total Posts, Qualification, Age Limit, Dates आदि</span><textarea id="details" rows="5" data-i18n-placeholder="details" placeholder="Total Posts, Advt No., Qualification, Age Limit, Application Dates आदि पूरी जानकारी लिखें" required maxlength="5000"></textarea></label>
+          <div class="full form-actions"><button type="submit" data-i18n="submitjob">नौकरी पोस्ट करें</button><span class="small" data-i18n="approvalNote">पोस्ट जाँच के बाद ही प्रकाशित होगी।</span></div>
+        </form>
+        <div id="postMsg" role="status" aria-live="polite"></div>
+      </div>
     </div>
   </section>
 
@@ -96,7 +145,66 @@ footer{margin-top:30px;background:var(--navy);color:#fff;text-align:center;paddi
     </div>
   </section>
 </main>
-<footer>🇮🇳 Free Job India — नौकरी की जानकारी सबके लिए</footer>
+<section class="panel" id="sitePolicies">
+  <h2 data-i18n="siteinfo">Website Information</h2>
+  <div class="row">
+    <div><h3 data-i18n="aboutTitle">About Us</h3><p data-i18n="aboutText">Free Job India shares government and private job notifications, admit cards, results and employment updates. Always verify details on the official recruiting organisation's website.</p></div>
+    <div><h3 data-i18n="contactTitle">Contact Us</h3><p data-i18n="contactText">For corrections, removal requests or website enquiries, contact the website owner using the genuine contact email published by the owner. Add your working email address here before applying for advertising.</p></div>
+    <div><h3 data-i18n="privacyTitle">Privacy Policy</h3><p data-i18n="privacyText">Job-post submissions may be stored in Firebase for moderation and publication. Do not submit sensitive personal information. Third-party services, including Google advertising if enabled, may use cookies or similar technologies as described in their own policies.</p></div>
+    <div><h3 data-i18n="disclaimerTitle">Disclaimer</h3><p data-i18n="disclaimerText">This website is an independent information platform and is not a government website. Vacancies are shared for information only. Applicants must confirm eligibility, dates, fees and application details from the official notification.</p></div>
+    <div><h3 data-i18n="termsTitle">Terms & Conditions</h3><p data-i18n="termsText">Users must submit truthful, lawful and relevant job information. The administrator may reject or remove incomplete, misleading, duplicate or inappropriate submissions. Use official links and apply at your own discretion.</p></div>
+  </div>
+  <p class="small" data-i18n="policyReminder">Website owner: replace the contact instruction with a real monitored email and publish complete, accurate policy details before submitting the site to AdSense.</p>
+</section>
+<footer>
+  <div class="policy-links"><a href="#sitePolicies" data-i18n="aboutTitle">About Us</a><a href="#sitePolicies" data-i18n="privacyTitle">Privacy Policy</a><a href="#sitePolicies" data-i18n="disclaimerTitle">Disclaimer</a><a href="#sitePolicies" data-i18n="termsTitle">Terms & Conditions</a><a href="#sitePolicies" data-i18n="contactTitle">Contact Us</a></div>
+  🇮🇳 Free Job India — नौकरी की जानकारी सबके लिए
+</footer>
+
+
+<script>
+const translations = {
+  en:{
+    tagline:"Latest Government & Private Jobs | Admit Card | Results | Employment Updates",
+    home:"Home",latest:"Latest Jobs",admit:"Admit Card",results:"Results",answer:"Answer Key",syllabus:"Syllabus",examdates:"Exam Dates",reminder:"Last Date Reminder",category:"Jobs by Category",tools:"Tools",postjob:"Post Job",admin:"Admin",
+    jobheading:"Latest Government & Private Jobs",jobintro:"Find new vacancies, eligibility, number of posts and application links here.",
+    postasideTitle:"Post a Job — Free",postasideText:"Share genuine job information with job seekers across India.",posttip1:"Provide accurate company and job details.",posttip2:"Use an official application link only.",posttip3:"Your post is checked by the admin before publishing.",postasideNote:"Do not share passwords, payment details or misleading vacancies.",
+    postheading:"Post a New Job",postnotice:"Your submitted job will appear in Live Jobs only after admin approval.",jobtitle:"Job Title",org:"Company / Organization / Department",location:"Location / City, State",salary:"Salary / Pay Scale (optional)",applylink:"Official Apply Link (optional)",details:"Total Posts, Advertisement No., Qualification, Age Limit, Application Dates and full details",submitjob:"Submit Job",approvalNote:"Your post will be published only after review.",
+    siteinfo:"Website Information",aboutTitle:"About Us",aboutText:"Free Job India shares government and private job notifications, admit cards, results and employment updates. Always verify details on the official recruiting organisation's website.",
+    contactTitle:"Contact Us",contactText:"For corrections, removal requests or website enquiries, contact the website owner using the genuine contact email published by the owner. Add your working email address here before applying for advertising.",
+    privacyTitle:"Privacy Policy",privacyText:"Job-post submissions may be stored in Firebase for moderation and publication. Do not submit sensitive personal information. Third-party services, including Google advertising if enabled, may use cookies or similar technologies as described in their own policies.",
+    disclaimerTitle:"Disclaimer",disclaimerText:"This website is an independent information platform and is not a government website. Vacancies are shared for information only. Applicants must confirm eligibility, dates, fees and application details from the official notification.",
+    termsTitle:"Terms & Conditions",termsText:"Users must submit truthful, lawful and relevant job information. The administrator may reject or remove incomplete, misleading, duplicate or inappropriate submissions. Use official links and apply at your own discretion.",
+    policyReminder:"Website owner: replace the contact instruction with a real monitored email and publish complete, accurate policy details before submitting the site to AdSense."
+  },
+  hi:{
+    tagline:"सरकारी और प्राइवेट नौकरी | एडमिट कार्ड | रिजल्ट | रोजगार अपडेट",
+    home:"होम",latest:"लेटेस्ट नौकरी",admit:"एडमिट कार्ड",results:"रिजल्ट",answer:"आंसर की",syllabus:"सिलेबस",examdates:"परीक्षा तिथि",reminder:"अंतिम तिथि रिमाइंडर",category:"श्रेणी के अनुसार नौकरी",tools:"टूल्स",postjob:"नौकरी पोस्ट करें",admin:"एडमिन",
+    jobheading:"लेटेस्ट सरकारी और प्राइवेट नौकरियाँ",jobintro:"नई भर्तियाँ, योग्यता, पदों की संख्या और आवेदन लिंक यहाँ देखें।",
+    postasideTitle:"मुफ्त में नौकरी पोस्ट करें",postasideText:"पूरे भारत के नौकरी खोजने वालों के साथ सही नौकरी की जानकारी साझा करें।",posttip1:"कंपनी और नौकरी की सही जानकारी दें।",posttip2:"केवल आधिकारिक आवेदन लिंक दें।",posttip3:"प्रकाशित होने से पहले एडमिन आपकी पोस्ट जाँचेगा।",postasideNote:"पासवर्ड, भुगतान विवरण या भ्रामक नौकरी की जानकारी न दें।",
+    postheading:"नई नौकरी पोस्ट करें",postnotice:"आपकी भेजी गई नौकरी Admin Approval के बाद ही Live Jobs में दिखाई देगी।",jobtitle:"नौकरी का नाम / पद",org:"कंपनी / संस्था / विभाग",location:"स्थान / शहर, राज्य",salary:"वेतन / पे स्केल (वैकल्पिक)",applylink:"आधिकारिक आवेदन लिंक (वैकल्पिक)",details:"कुल पद, विज्ञापन संख्या, योग्यता, आयु सीमा, आवेदन तिथि और पूरी जानकारी",submitjob:"नौकरी पोस्ट करें",approvalNote:"जाँच के बाद ही पोस्ट प्रकाशित होगी।",
+    siteinfo:"वेबसाइट की जानकारी",aboutTitle:"हमारे बारे में",aboutText:"Free Job India सरकारी और निजी नौकरी, एडमिट कार्ड, रिजल्ट और रोजगार अपडेट साझा करता है। सभी जानकारी संबंधित भर्ती संस्था की आधिकारिक वेबसाइट से जरूर जाँचें।",
+    contactTitle:"संपर्क करें",contactText:"सुधार, जानकारी हटाने या वेबसाइट संबंधी प्रश्नों के लिए वेबसाइट मालिक के प्रकाशित वास्तविक ईमेल पर संपर्क करें। विज्ञापन के लिए आवेदन करने से पहले यहाँ अपना चालू ईमेल जोड़ें।",
+    privacyTitle:"प्राइवेसी पॉलिसी",privacyText:"नौकरी पोस्ट की जानकारी समीक्षा और प्रकाशन के लिए Firebase में रखी जा सकती है। संवेदनशील निजी जानकारी न भेजें। Google विज्ञापन सहित तीसरी सेवाएँ चालू होने पर अपनी नीतियों के अनुसार कुकीज़ या समान तकनीक इस्तेमाल कर सकती हैं।",
+    disclaimerTitle:"अस्वीकरण",disclaimerText:"यह एक स्वतंत्र जानकारी देने वाली वेबसाइट है, सरकारी वेबसाइट नहीं। नौकरियों की जानकारी केवल सुविधा के लिए दी जाती है। योग्यता, तारीख, फीस और आवेदन की जानकारी आधिकारिक नोटिफिकेशन से जाँचें।",
+    termsTitle:"नियम और शर्तें",termsText:"यूजर सही, कानूनी और प्रासंगिक नौकरी की जानकारी दें। एडमिन अधूरी, भ्रामक, डुप्लिकेट या अनुचित पोस्ट को अस्वीकार या हटा सकता है। आधिकारिक लिंक का उपयोग करें और अपने विवेक से आवेदन करें।",
+    policyReminder:"वेबसाइट मालिक: AdSense आवेदन से पहले इस निर्देश की जगह अपना चालू ईमेल डालें और सभी नीतियों की जानकारी पूरी व सही करें।"
+  }
+};
+function setLanguage(lang){
+  const dict=translations[lang]||translations.hi;
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{const key=el.dataset.i18n;if(dict[key])el.textContent=dict[key];});
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el=>{const key=el.dataset.i18nPlaceholder;if(dict[key])el.placeholder=dict[key];});
+  document.getElementById("langEn").classList.toggle("active",lang==="en");
+  document.getElementById("langHi").classList.toggle("active",lang==="hi");
+  try{localStorage.setItem("fji-language",lang)}catch(e){}
+}
+document.getElementById("langEn").addEventListener("click",()=>setLanguage("en"));
+document.getElementById("langHi").addEventListener("click",()=>setLanguage("hi"));
+let savedLanguage="hi";try{savedLanguage=localStorage.getItem("fji-language")||"hi"}catch(e){}
+setLanguage(savedLanguage);
+</script>
 
 <script type="module">
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
@@ -124,9 +232,25 @@ function showPage(name){
   Object.entries(navs).forEach(([key,el])=>el.classList.toggle('active',key===name));
   window.scrollTo({top:0,behavior:'smooth'});
 }
-navs.home.onclick=()=>showPage('home');
+navs.home.onclick=()=>{showPage('home');$('homePage').querySelector('h2').textContent='Latest Government & Private Jobs';document.querySelectorAll('[data-state]').forEach(b=>b.classList.remove('active'));renderLive(window.__allApprovedJobs||{});};
 navs.post.onclick=()=>showPage('post');
 navs.admin.onclick=()=>showPage('admin');
+// Menu labels are ready for future dedicated sections; currently keep job listings on the home page.
+document.querySelectorAll('[data-info]').forEach(btn=>btn.addEventListener('click',()=>{
+  showPage('home');
+  $('liveJobs').scrollIntoView({behavior:'smooth',block:'start'});
+  $('homePage').querySelector('h2').textContent=btn.dataset.info+' — जल्द उपलब्ध';
+}));
+document.querySelectorAll('[data-state]').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('[data-state]').forEach(b=>b.classList.toggle('active',b===btn));
+  showPage('home');
+  $('homePage').querySelector('h2').textContent='Latest Jobs — '+btn.dataset.state;
+  const code=btn.dataset.state;
+  const all=window.__allApprovedJobs||{};
+  const stateNames={AP:'ANDHRA PRADESH',AS:'ASSAM',BR:'BIHAR',CG:'CHHATTISGARH',DL:'DELHI',GJ:'GUJARAT',HP:'HIMACHAL PRADESH',HR:'HARYANA',JH:'JHARKHAND',KA:'KARNATAKA',KL:'KERALA',MH:'MAHARASHTRA',MP:'MADHYA PRADESH',OD:'ODISHA',PB:'PUNJAB',RJ:'RAJASTHAN',TN:'TAMIL NADU',TS:'TELANGANA',UK:'UTTARAKHAND',UP:'UTTAR PRADESH',WB:'WEST BENGAL'};
+   const filtered=Object.fromEntries(Object.entries(all).filter(([id,j])=>{const loc=String(j.location||'').toUpperCase();return loc.includes(code)||loc.includes(stateNames[code]||'');}));
+  renderLive(filtered);
+}));
 
 function escapeHtml(s=''){
  return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -183,7 +307,7 @@ $('postForm').addEventListener('submit',async e=>{
   $('postMsg').textContent='पोस्ट भेज दी गई। Admin Approval के बाद Live Jobs में दिखाई देगी।';
  }catch(err){$('postMsg').textContent='पोस्ट नहीं हो सकी: '+err.message;}
 });
-onValue(ref(db,'approvedJobs'),snap=>renderLive(snap.val()),err=>$('liveJobs').textContent='Jobs load error: '+err.message);
+onValue(ref(db,'approvedJobs'),snap=>{window.__allApprovedJobs=snap.val()||{};renderLive(window.__allApprovedJobs);},err=>$('liveJobs').textContent='Jobs load error: '+err.message);
 
 $('loginBtn').addEventListener('click',async()=>{
  $('loginMsg').textContent='Login हो रहा है...';
