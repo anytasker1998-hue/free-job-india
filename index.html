@@ -192,6 +192,14 @@ footer:after{content:"";display:block;height:4px;background:var(--green);positio
       </div>
     </div>
   </section>
+
+  <section id="resourcePage" class="hidden">
+    <div class="panel">
+      <button id="backHome" class="back-button" type="button" data-i18n="backHome">← Back to Home</button>
+      <h2 id="resourceTitle">Free Resources</h2>
+      <div id="resourceBody"></div>
+    </div>
+  </section>
 </main>
 <section class="panel" id="sitePolicies">
   <h2 data-i18n="siteinfo">Website Information</h2>
@@ -225,7 +233,7 @@ const translations = {
     disclaimerTitle:"Disclaimer",disclaimerText:"This website is an independent information platform and is not a government website. Vacancies are shared for information only. Applicants must confirm eligibility, dates, fees and application details from the official notification.",
     termsTitle:"Terms & Conditions",termsText:"Users must submit truthful, lawful and relevant job information. The administrator may reject or remove incomplete, misleading, duplicate or inappropriate submissions. Use official links and apply at your own discretion.",
     policyReminder:"Please contact us by email for corrections, removal requests or website enquiries.",
-    chooseExam:"Choose exam category",startQuiz:"Start Free Test",submitAnswers:"Submit Answers",tryAgain:"Try Again",questionLabel:"Question",dailyTitle:"Daily Quiz",mockTitle:"Free Mock Test",quizIntro:"Choose a category and practise free. Questions shown here are practice questions, not official previous-year papers.",ctIntro:"Odisha D.El.Ed / CT Entrance: 20-question free practice set based on the published subject areas. This is not an official paper or a full-length 90-question test.",scoreText:"Your score",correctText:"Correct",wrongText:"Incorrect",selectAnswer:"Please select an answer for every question.",eligibilityText:"Eligibility depends on the official notification. Check age limit, education, nationality, category relaxation and required certificates on the recruiting body's website.",syllabusText:"Choose your exam category and download/read the syllabus only from the official recruitment notification or exam authority. Common subjects may include General Awareness, Reasoning, Mathematics and English.",patternText:"Exam pattern varies by recruitment. Confirm stages, marks, duration, negative marking and subject-wise weightage from the latest official notification.",selectionText:"Selection may include a written/CBT exam, skill or physical test, document verification and medical examination. The exact stages differ by post; check the official notice.",papersText:"Previous-year papers should be sourced from the official exam authority or clearly identified as practice material. No copyrighted paper is reproduced here.",generalCategory:"General Competitive Exams",sscCategory:"SSC",railCategory:"Railway",bankCategory:"Banking",policeCategory:"Police",teachCategory:"Teaching",pscCategory:"UPSC / State PSC",odishaCategory:"Odisha Government Jobs",otherCategory:"Other Exams",ctCategory:"Odisha D.El.Ed / CT Entrance"
+    chooseExam:"Choose exam category",startQuiz:"Start Free Test",submitAnswers:"Submit Answers",tryAgain:"Try Again",questionLabel:"Question",dailyTitle:"Daily Quiz",mockTitle:"Free Mock Test",quizIntro:"Choose a category and practise free. Daily Quiz rotates the built-in question bank by date; it does not fetch live AI questions. Questions shown here are practice questions, not official previous-year papers.",ctIntro:"Odisha D.El.Ed / CT Entrance: 20-question free practice set based on the published subject areas. This is not an official paper or a full-length 90-question test.",scoreText:"Your score",correctText:"Correct",wrongText:"Incorrect",selectAnswer:"Please select an answer for every question.",eligibilityText:"Eligibility depends on the official notification. Check age limit, education, nationality, category relaxation and required certificates on the recruiting body's website.",syllabusText:"Choose your exam category and download/read the syllabus only from the official recruitment notification or exam authority. Common subjects may include General Awareness, Reasoning, Mathematics and English.",patternText:"Exam pattern varies by recruitment. Confirm stages, marks, duration, negative marking and subject-wise weightage from the latest official notification.",selectionText:"Selection may include a written/CBT exam, skill or physical test, document verification and medical examination. The exact stages differ by post; check the official notice.",papersText:"Previous-year papers should be sourced from the official exam authority or clearly identified as practice material. No copyrighted paper is reproduced here.",generalCategory:"General Competitive Exams",sscCategory:"SSC",railCategory:"Railway",bankCategory:"Banking",policeCategory:"Police",teachCategory:"Teaching",pscCategory:"UPSC / State PSC",odishaCategory:"Odisha Government Jobs",otherCategory:"Other Exams",ctCategory:"Odisha D.El.Ed / CT Entrance"
   },
   hi:{
     freeResources:"मुफ्त तैयारी सामग्री",dailyQuiz:"डेली क्विज",mockTest:"मुफ्त मॉक टेस्ट",eligibility:"योग्यता",examPattern:"परीक्षा पैटर्न",selection:"चयन प्रक्रिया",previousPapers:"पिछले प्रश्नपत्र",freeNote:"सभी अभ्यास सुविधाएँ मुफ्त हैं।",backHome:"← होम पर जाएँ",
@@ -240,7 +248,7 @@ const translations = {
     disclaimerTitle:"अस्वीकरण",disclaimerText:"यह एक स्वतंत्र जानकारी देने वाली वेबसाइट है, सरकारी वेबसाइट नहीं। नौकरियों की जानकारी केवल सुविधा के लिए दी जाती है। योग्यता, तारीख, फीस और आवेदन की जानकारी आधिकारिक नोटिफिकेशन से जाँचें।",
     termsTitle:"नियम और शर्तें",termsText:"यूजर सही, कानूनी और प्रासंगिक नौकरी की जानकारी दें। एडमिन अधूरी, भ्रामक, डुप्लिकेट या अनुचित पोस्ट को अस्वीकार या हटा सकता है। आधिकारिक लिंक का उपयोग करें और अपने विवेक से आवेदन करें।",
     policyReminder:"सुधार या वेबसाइट संबंधी प्रश्नों के लिए हमें ईमेल करें।",
-    chooseExam:"परीक्षा की श्रेणी चुनें",startQuiz:"मुफ्त टेस्ट शुरू करें",submitAnswers:"जवाब जमा करें",tryAgain:"फिर से प्रयास करें",questionLabel:"प्रश्न",dailyTitle:"डेली क्विज",mockTitle:"मुफ्त मॉक टेस्ट",quizIntro:"श्रेणी चुनें और मुफ्त अभ्यास करें। ये अभ्यास प्रश्न हैं, आधिकारिक पुराने प्रश्नपत्र नहीं।",ctIntro:"ओडिशा D.El.Ed / CT प्रवेश: प्रकाशित विषयों पर आधारित 20 प्रश्नों का मुफ्त अभ्यास सेट। यह आधिकारिक प्रश्नपत्र या पूरा 90 प्रश्नों वाला टेस्ट नहीं है।",scoreText:"आपका स्कोर",correctText:"सही",wrongText:"गलत",selectAnswer:"कृपया सभी प्रश्नों के उत्तर चुनें।",eligibilityText:"योग्यता आधिकारिक नोटिफिकेशन पर निर्भर करती है। आयु सीमा, शिक्षा, राष्ट्रीयता, श्रेणी छूट और जरूरी प्रमाणपत्र भर्ती संस्था की वेबसाइट पर जाँचें।",syllabusText:"अपनी परीक्षा का सिलेबस आधिकारिक भर्ती नोटिफिकेशन या परीक्षा संस्था से ही देखें। सामान्य विषयों में सामान्य ज्ञान, रीजनिंग, गणित और अंग्रेजी हो सकते हैं।",patternText:"परीक्षा पैटर्न भर्ती के अनुसार बदलता है। चरण, अंक, समय, नेगेटिव मार्किंग और विषयों का वेटेज नवीनतम आधिकारिक नोटिफिकेशन से जाँचें।",selectionText:"चयन में लिखित/CBT परीक्षा, स्किल या फिजिकल टेस्ट, दस्तावेज सत्यापन और मेडिकल परीक्षा शामिल हो सकती है। सही चरण आधिकारिक नोटिस में देखें।",papersText:"पुराने प्रश्नपत्र आधिकारिक परीक्षा संस्था से प्राप्त करें। यहाँ कोई कॉपीराइट वाला प्रश्नपत्र प्रकाशित नहीं किया गया है।",generalCategory:"सामान्य प्रतियोगी परीक्षा",sscCategory:"SSC",railCategory:"रेलवे",bankCategory:"बैंकिंग",policeCategory:"पुलिस",teachCategory:"शिक्षक भर्ती",pscCategory:"UPSC / राज्य PSC",odishaCategory:"ओडिशा सरकारी नौकरी",otherCategory:"अन्य परीक्षाएँ",ctCategory:"ओडिशा D.El.Ed / CT प्रवेश परीक्षा"
+    chooseExam:"परीक्षा की श्रेणी चुनें",startQuiz:"मुफ्त टेस्ट शुरू करें",submitAnswers:"जवाब जमा करें",tryAgain:"फिर से प्रयास करें",questionLabel:"प्रश्न",dailyTitle:"डेली क्विज",mockTitle:"मुफ्त मॉक टेस्ट",quizIntro:"श्रेणी चुनें और मुफ्त अभ्यास करें। डेली क्विज में पहले से जोड़े गए प्रश्न तारीख के अनुसार बदलते हैं; यह लाइव AI प्रश्न नहीं बनाता। ये अभ्यास प्रश्न हैं, आधिकारिक पुराने प्रश्नपत्र नहीं।",ctIntro:"ओडिशा D.El.Ed / CT प्रवेश: प्रकाशित विषयों पर आधारित 20 प्रश्नों का मुफ्त अभ्यास सेट। यह आधिकारिक प्रश्नपत्र या पूरा 90 प्रश्नों वाला टेस्ट नहीं है।",scoreText:"आपका स्कोर",correctText:"सही",wrongText:"गलत",selectAnswer:"कृपया सभी प्रश्नों के उत्तर चुनें।",eligibilityText:"योग्यता आधिकारिक नोटिफिकेशन पर निर्भर करती है। आयु सीमा, शिक्षा, राष्ट्रीयता, श्रेणी छूट और जरूरी प्रमाणपत्र भर्ती संस्था की वेबसाइट पर जाँचें।",syllabusText:"अपनी परीक्षा का सिलेबस आधिकारिक भर्ती नोटिफिकेशन या परीक्षा संस्था से ही देखें। सामान्य विषयों में सामान्य ज्ञान, रीजनिंग, गणित और अंग्रेजी हो सकते हैं।",patternText:"परीक्षा पैटर्न भर्ती के अनुसार बदलता है। चरण, अंक, समय, नेगेटिव मार्किंग और विषयों का वेटेज नवीनतम आधिकारिक नोटिफिकेशन से जाँचें।",selectionText:"चयन में लिखित/CBT परीक्षा, स्किल या फिजिकल टेस्ट, दस्तावेज सत्यापन और मेडिकल परीक्षा शामिल हो सकती है। सही चरण आधिकारिक नोटिस में देखें।",papersText:"पुराने प्रश्नपत्र आधिकारिक परीक्षा संस्था से प्राप्त करें। यहाँ कोई कॉपीराइट वाला प्रश्नपत्र प्रकाशित नहीं किया गया है।",generalCategory:"सामान्य प्रतियोगी परीक्षा",sscCategory:"SSC",railCategory:"रेलवे",bankCategory:"बैंकिंग",policeCategory:"पुलिस",teachCategory:"शिक्षक भर्ती",pscCategory:"UPSC / राज्य PSC",odishaCategory:"ओडिशा सरकारी नौकरी",otherCategory:"अन्य परीक्षाएँ",ctCategory:"ओडिशा D.El.Ed / CT प्रवेश परीक्षा"
   }
 };
 function setLanguage(lang){
@@ -251,6 +259,7 @@ function setLanguage(lang){
   document.getElementById("langEn").classList.toggle("active",lang==="en");
   document.getElementById("langHi").classList.toggle("active",lang==="hi");
   try{localStorage.setItem("fji-language",lang)}catch(e){}
+  document.dispatchEvent(new CustomEvent("fji-language-change",{detail:{lang}}));
 }
 document.getElementById("langEn").addEventListener("click",()=>setLanguage("en"));
 document.getElementById("langHi").addEventListener("click",()=>setLanguage("hi"));
@@ -302,6 +311,7 @@ setLanguage(savedLanguage);
  ];
  const labels={en:{daily:"Daily Quiz",mock:"Free Mock Test"},hi:{daily:"डेली क्विज",mock:"मुफ्त मॉक टेस्ट"}};
  let currentLang=document.documentElement.lang||'hi', activeQuestions=[];
+ document.addEventListener('fji-language-change',e=>{currentLang=e.detail.lang;});
  function t(k){const node=document.querySelector('[data-i18n="'+k+'"]');try{return (translations[currentLang]&&translations[currentLang][k])||(node?node.textContent:k)}catch(e){return node?node.textContent:k}}
  function showResource(type){
    document.getElementById('homePage').classList.add('hidden');
@@ -318,7 +328,31 @@ setLanguage(savedLanguage);
     papers:['Previous Papers','पिछले प्रश्नपत्र','papersText']
    };
    if(type==='mock'||type==='daily'){title.textContent=type==='mock'?t('mockTitle'):t('dailyTitle');renderQuiz(box,type);return;}
-   const item=content[type];title.textContent=currentLang==='en'?item[0]:item[1];box.innerHTML='<p class="resource-intro">'+t(item[2])+'</p><p class="resource-intro">For accurate details, always follow the latest official notification.</p>';
+   const item=content[type];
+   title.textContent=currentLang==='en'?item[0]:item[1];
+   const categories=['ctCategory','sscCategory','railCategory','bankCategory','policeCategory','teachCategory','pscCategory','odishaCategory','otherCategory'];
+   const selectLabel=currentLang==='en'?'Select exam:':'परीक्षा चुनें:';
+   const guidance=currentLang==='en'?'This is a general preparation guide. Exact rules, syllabus, marks and stages can change. Always verify the current official notification.':'यह सामान्य तैयारी मार्गदर्शिका है। सही नियम, सिलेबस, अंक और चरण बदल सकते हैं। हमेशा नवीनतम आधिकारिक नोटिफिकेशन से पुष्टि करें।';
+   const detail={
+    ctCategory:currentLang==='en'?'Odisha D.El.Ed / CT: practise language, teaching aptitude, reasoning, mathematics and general awareness. Confirm the current SCERT Odisha prospectus for exact eligibility and paper structure.':'ओडिशा D.El.Ed / CT: भाषा, शिक्षण अभिरुचि, रीजनिंग, गणित और सामान्य जागरूकता का अभ्यास करें। सही योग्यता और पेपर संरचना के लिए SCERT Odisha का नवीनतम प्रॉस्पेक्टस देखें।',
+    sscCategory:currentLang==='en'?'SSC exams commonly test reasoning, quantitative aptitude, English and general awareness. Check the specific SSC exam notice for the exact syllabus and stages.':'SSC परीक्षाओं में सामान्यतः रीजनिंग, गणितीय क्षमता, अंग्रेज़ी और सामान्य जागरूकता पूछी जाती है। सही सिलेबस और चरण के लिए संबंधित SSC नोटिफिकेशन देखें।',
+    railCategory:currentLang==='en'?'Railway exam subjects and stages depend on the post and RRB notification. Verify the current CEN notice before applying.':'रेलवे परीक्षा के विषय और चरण पद तथा RRB नोटिफिकेशन पर निर्भर करते हैं। आवेदन से पहले नवीनतम CEN नोटिस देखें।',
+    bankCategory:currentLang==='en'?'Banking exams may include reasoning, quantitative aptitude, English and banking/general awareness. Check the exact IBPS or SBI notification.':'बैंकिंग परीक्षाओं में रीजनिंग, गणितीय क्षमता, अंग्रेज़ी और बैंकिंग/सामान्य जागरूकता हो सकती है। संबंधित IBPS या SBI नोटिफिकेशन देखें।',
+    policeCategory:currentLang==='en'?'Police recruitment may include a written exam, physical standards/test and document verification. Requirements vary by state and post.':'पुलिस भर्ती में लिखित परीक्षा, शारीरिक माप/दक्षता परीक्षा और दस्तावेज़ सत्यापन हो सकता है। नियम राज्य और पद के अनुसार बदलते हैं।',
+    teachCategory:currentLang==='en'?'Teaching exams may assess child development, pedagogy, language and subject knowledge. Check the relevant board notification.':'शिक्षक परीक्षाओं में बाल विकास, शिक्षाशास्त्र, भाषा और विषय ज्ञान की जाँच हो सकती है। संबंधित बोर्ड का नोटिफिकेशन देखें।',
+    pscCategory:currentLang==='en'?'UPSC and State PSC exams have exam-specific stages and syllabi. Use the official commission syllabus and notification.':'UPSC और State PSC की परीक्षाओं के चरण और सिलेबस अलग-अलग होते हैं। आधिकारिक आयोग का सिलेबस और नोटिफिकेशन देखें।',
+    odishaCategory:currentLang==='en'?'Odisha recruitment rules differ by department and post. Use the official Odisha recruitment notice for eligibility and selection details.':'ओडिशा की भर्तियों के नियम विभाग और पद के अनुसार अलग होते हैं। योग्यता और चयन की जानकारी आधिकारिक भर्ती नोटिस से देखें।',
+    otherCategory:currentLang==='en'?'Choose the exact exam authority and read its latest notification before using a generic preparation plan.':'सामान्य तैयारी योजना अपनाने से पहले संबंधित परीक्षा प्राधिकरण का नवीनतम नोटिफिकेशन पढ़ें।'
+   };
+   const select='<div class="quiz-toolbar"><label>'+selectLabel+' <select id="resourceExam">'+categories.map(k=>'<option value="'+k+'">'+t(k)+'</option>').join('')+'</select></label></div><div id="resourceExamInfo" class="resource-intro"></div>';
+   box.innerHTML='<p class="resource-intro">'+t(item[2])+'</p>'+select+'<p class="resource-intro">'+guidance+'</p>';
+   const examSelect=document.getElementById('resourceExam'), info=document.getElementById('resourceExamInfo');
+   function updateInfo(){info.textContent=detail[examSelect.value]||detail.otherCategory;}
+   examSelect.value='ctCategory';examSelect.addEventListener('change',updateInfo);updateInfo();
+   if(type==='papers'){
+    const note=currentLang==='en'?'No official paper is hosted unless a verified public source is provided. Use the recruiting authority website for released question papers and answer keys.':'यहाँ बिना सत्यापित स्रोत के किसी पेपर को आधिकारिक नहीं बताया गया है। जारी प्रश्नपत्र और उत्तर-कुंजी के लिए भर्ती प्राधिकरण की वेबसाइट देखें।';
+    box.insertAdjacentHTML('beforeend','<p class="resource-intro">'+note+'</p>');
+   }
  }
  function renderQuiz(box,type){
    const categoryKeys=['generalCategory','sscCategory','railCategory','bankCategory','policeCategory','teachCategory','pscCategory','odishaCategory','ctCategory','otherCategory'];
@@ -383,14 +417,15 @@ function showPage(name){
   Object.entries(navs).forEach(([key,el])=>el.classList.toggle('active',key===name));
   window.scrollTo({top:0,behavior:'smooth'});
 }
-navs.home.onclick=()=>{showPage('home');$('homePage').querySelector('h2').textContent='Latest Government & Private Jobs';document.querySelectorAll('[data-state]').forEach(b=>b.classList.remove('active'));renderLive(window.__allApprovedJobs||{});};
+navs.home.onclick=()=>{showPage('home');$('homePage').querySelector('h2').textContent='Latest Government & Private Jobs';document.querySelectorAll('[data-state]').forEach(b=>b.classList.remove('active'));document.querySelectorAll('[data-resource]').forEach(b=>b.classList.remove('active'));renderLive(window.__allApprovedJobs||{});};
 navs.post.onclick=()=>showPage('post');
 navs.admin.onclick=()=>showPage('admin');
 // Menu labels are ready for future dedicated sections; currently keep job listings on the home page.
 document.querySelectorAll('[data-info]').forEach(btn=>btn.addEventListener('click',()=>{
   showPage('home');
-  $('liveJobs').scrollIntoView({behavior:'smooth',block:'start'});
   $('homePage').querySelector('h2').textContent=btn.dataset.info+' — जल्द उपलब्ध';
+  $('liveJobs').textContent='इस सेक्शन की सत्यापित जानकारी जल्द जोड़ी जाएगी।';
+  $('liveJobs').scrollIntoView({behavior:'smooth',block:'start'});
 }));
 document.querySelectorAll('[data-state]').forEach(btn=>btn.addEventListener('click',()=>{
   document.querySelectorAll('[data-state]').forEach(b=>b.classList.toggle('active',b===btn));
