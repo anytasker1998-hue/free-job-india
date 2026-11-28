@@ -3,67 +3,101 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Free Job India</title>
+<title>Free Job India | Latest Government & Private Jobs</title>
 <style>
+:root{--saffron:#ff9933;--green:#138808;--navy:#123d75;--ink:#172033;--muted:#667085;--bg:#f4f7fb}
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#172033}
-header{background:#123d75;color:white;padding:24px 16px;text-align:center}
-main{max-width:1000px;margin:20px auto;padding:0 14px}
-.panel{background:white;border-radius:12px;padding:18px;margin:16px 0;box-shadow:0 2px 12px #0001}
-input,textarea,button{font:inherit;padding:10px;margin:6px 0;width:100%;border:1px solid #ccd4df;border-radius:8px}
-button{background:#1559a6;color:white;border:0;cursor:pointer;font-weight:bold}
+body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:linear-gradient(110deg,var(--saffron) 0 33.33%,#fff 33.33% 66.66%,var(--green) 66.66%);padding:5px 0 0}
+.brand{background:#fffE;text-align:center;padding:19px 14px 15px}
+.brand h1{margin:0;color:var(--navy);font-size:30px;letter-spacing:.5px}
+.brand p{margin:7px 0 0;color:#344054;font-weight:600}
+nav{background:var(--navy);display:flex;justify-content:center;gap:8px;flex-wrap:wrap;padding:10px}
+nav button{width:auto;margin:0;padding:10px 16px;background:transparent;border:1px solid #ffffff55;color:#fff;border-radius:7px}
+nav button.active,nav button:hover{background:#fff;color:var(--navy)}
+main{max-width:1050px;margin:22px auto;padding:0 14px}
+.panel{background:#fff;border-radius:12px;padding:19px;margin:16px 0;box-shadow:0 2px 12px #0000000d}
+h2{color:var(--navy);margin:0 0 15px}
+input,textarea{font:inherit;padding:11px;margin:6px 0;width:100%;border:1px solid #ccd4df;border-radius:8px}
+button,.action{font:inherit;padding:11px 15px;border:0;border-radius:8px;background:var(--navy);color:#fff;cursor:pointer;font-weight:700;text-decoration:none;display:inline-block}
+button:hover,.action:hover{filter:brightness(1.08)}
 button.danger{background:#b42318}
-.jobs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
-.job{border:1px solid #dbe2ec;border-radius:10px;padding:14px;background:white}
-.job h3{margin-top:0;color:#1559a6}
-.small{font-size:13px;color:#667085}
-.hidden{display:none}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-@media(max-width:600px){.row{grid-template-columns:1fr}}
+.jobs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.job{border:1px solid #dbe2ec;border-top:5px solid var(--saffron);border-radius:10px;padding:16px;background:#fff}
+.job h3{margin:0 0 9px;color:var(--navy);line-height:1.35}
+.job .org{font-weight:700;color:#344054}
+.job p{line-height:1.55;margin:8px 0;overflow-wrap:anywhere}
+.job .details{white-space:pre-wrap;color:#344054}
+.job .apply{background:var(--green);margin-top:8px}
+.small{font-size:13px;color:var(--muted)}
+.hidden{display:none!important}
+.notice{background:#fff7ed;border-left:4px solid var(--saffron);padding:12px;border-radius:7px}
+#loginMsg,#postMsg{margin-top:8px}
+footer{margin-top:30px;background:var(--navy);color:#fff;text-align:center;padding:18px}
+@media(max-width:600px){.row{grid-template-columns:1fr}.brand h1{font-size:25px}nav button{flex:1}}
 </style>
 </head>
 <body>
 <header>
-<h1>Free Job India</h1>
-<div>नौकरी खोजें और नई नौकरी पोस्ट करें</div>
+  <div class="brand">
+    <h1>🇮🇳 FREE JOB INDIA</h1>
+    <p>भारत की Government और Private Jobs की जानकारी</p>
+  </div>
 </header>
+<nav>
+  <button id="homeNav" class="active" type="button">Home / Latest Jobs</button>
+  <button id="postNav" type="button">नई नौकरी पोस्ट करें</button>
+  <button id="adminNav" type="button">Admin</button>
+</nav>
 <main>
-<div class="panel">
-<h2>नई नौकरी पोस्ट करें</h2>
-<p class="small">आपकी पोस्ट Admin Approval के बाद वेबसाइट पर दिखाई देगी।</p>
-<form id="postForm">
-<input id="title" placeholder="Job Title / पद का नाम" required>
-<input id="org" placeholder="Company / Organization" required>
-<div class="row">
-<input id="location" placeholder="Location / शहर" required>
-<input id="salary" placeholder="Salary (optional)">
-</div>
-<input id="apply" placeholder="Apply link / संपर्क (optional)">
-<textarea id="details" rows="4" placeholder="Job details, qualification, deadline आदि" required></textarea>
-<button type="submit">नौकरी पोस्ट करें</button>
-</form>
-<div id="postMsg"></div>
-</div>
-<div class="panel">
-<h2>Live Jobs</h2>
-<div id="liveJobs" class="jobs">लोड हो रहा है...</div>
-</div>
-<div class="panel">
-<h2>Admin Login</h2>
-<div id="loginBox">
-<input id="email" type="email" placeholder="Admin Email">
-<input id="password" type="password" placeholder="Password">
-<button id="loginBtn">Admin Login</button>
-<div id="loginMsg"></div>
-</div>
-<div id="adminBox" class="hidden">
-<p id="adminStatus"></p>
-<button id="logoutBtn">Logout</button>
-<h3>Pending Posts</h3>
-<div id="pendingJobs" class="jobs"></div>
-</div>
-</div>
+  <section id="homePage">
+    <div class="panel">
+      <h2>Latest Government & Private Jobs</h2>
+      <p class="small">नई भर्तियाँ, योग्यता, पदों की संख्या और आवेदन लिंक यहाँ देखें।</p>
+      <div id="liveJobs" class="jobs">नौकरियाँ लोड हो रही हैं...</div>
+    </div>
+  </section>
+
+  <section id="postPage" class="hidden">
+    <div class="panel">
+      <h2>नई नौकरी पोस्ट करें</h2>
+      <p class="notice">आपकी भेजी गई नौकरी Admin Approval के बाद ही Live Jobs में दिखाई देगी।</p>
+      <form id="postForm">
+        <input id="title" placeholder="Job Title / भर्ती का नाम" required>
+        <input id="org" placeholder="Company / Organization / विभाग" required>
+        <div class="row">
+          <input id="location" placeholder="Location / शहर" required>
+          <input id="salary" placeholder="Salary / Pay Scale (optional)">
+        </div>
+        <input id="apply" placeholder="Official Apply Link (optional)">
+        <textarea id="details" rows="7" placeholder="Total Posts, Advt No., Qualification, Age Limit, Application Dates आदि पूरी जानकारी लिखें" required></textarea>
+        <button type="submit">नौकरी पोस्ट करें</button>
+      </form>
+      <div id="postMsg" role="status"></div>
+    </div>
+  </section>
+
+  <section id="adminPage" class="hidden">
+    <div class="panel">
+      <h2>Admin Login</h2>
+      <div id="loginBox">
+        <input id="email" type="email" placeholder="Admin Email">
+        <input id="password" type="password" placeholder="Password">
+        <button id="loginBtn" type="button">Admin Login</button>
+        <div id="loginMsg" role="status"></div>
+      </div>
+      <div id="adminBox" class="hidden">
+        <p id="adminStatus"></p>
+        <button id="logoutBtn" type="button">Logout</button>
+        <h3>Pending Posts</h3>
+        <div id="pendingJobs" class="jobs"></div>
+      </div>
+    </div>
+  </section>
 </main>
+<footer>🇮🇳 Free Job India — नौकरी की जानकारी सबके लिए</footer>
+
 <script type="module">
 import {initializeApp} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
 import {getDatabase,ref,push,set,remove,onValue} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js';
@@ -79,153 +113,103 @@ messagingSenderId:'195035148870',
 appId:'1:195035148870:web:211c38b79f35937f9c5047',
 measurementId:'G-9BD370Z2PW'
 };
-
 const ADMIN_UID='uMG9e7MljNauuHN7Ue9OeuVJgPJ3';
+const app=initializeApp(firebaseConfig),db=getDatabase(app),auth=getAuth(app);
+const $=id=>document.getElementById(id);
+const pages={home:$('homePage'),post:$('postPage'),admin:$('adminPage')};
+const navs={home:$('homeNav'),post:$('postNav'),admin:$('adminNav')};
 
-const app=initializeApp(firebaseConfig);
-const db=getDatabase(app);
-const auth=getAuth(app);
-
-const postForm=document.getElementById('postForm');
-const postMsg=document.getElementById('postMsg');
-const titleEl=document.getElementById('title');
-const orgEl=document.getElementById('org');
-const locationEl=document.getElementById('location');
-const salaryEl=document.getElementById('salary');
-const applyEl=document.getElementById('apply');
-const detailsEl=document.getElementById('details');
-const liveJobsEl=document.getElementById('liveJobs');
-const loginBoxEl=document.getElementById('loginBox');
-const adminBoxEl=document.getElementById('adminBox');
-const emailEl=document.getElementById('email');
-const passwordEl=document.getElementById('password');
-const loginBtnEl=document.getElementById('loginBtn');
-const loginMsgEl=document.getElementById('loginMsg');
-const logoutBtnEl=document.getElementById('logoutBtn');
-const adminStatusEl=document.getElementById('adminStatus');
-const pendingJobsEl=document.getElementById('pendingJobs');
+function showPage(name){
+  Object.entries(pages).forEach(([key,el])=>el.classList.toggle('hidden',key!==name));
+  Object.entries(navs).forEach(([key,el])=>el.classList.toggle('active',key===name));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+navs.home.onclick=()=>showPage('home');
+navs.post.onclick=()=>showPage('post');
+navs.admin.onclick=()=>showPage('admin');
 
 function escapeHtml(s=''){
-return String(s).replace(/[&<>"']/g,c=>({
-'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-}[c]));
+ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
-
 function jobCard(j,id,admin=false){
-return `<article class="job">
-<h3>${escapeHtml(j.title||'')}</h3>
-<b>${escapeHtml(j.org||'')}</b>
-<p>📍 ${escapeHtml(j.location||'')}</p>
-${j.salary?`<p>💰 ${escapeHtml(j.salary)}</p>`:''}
-<p>${escapeHtml(j.details||'')}</p>
-${j.apply?`<p>Apply: ${escapeHtml(j.apply)}</p>`:''}
-${admin?`<button data-approve="${id}">Approve</button>
-<button class="danger" data-delete="${id}">Delete</button>`:''}
-</article>`;
+ const apply=String(j.apply||'').trim();
+ const safeUrl=/^https?:\/\/\S+$/i.test(apply);
+ return `<article class="job">
+ <h3>${escapeHtml(j.title||'')}</h3>
+ <div class="org">${escapeHtml(j.org||'')}</div>
+ <p>📍 ${escapeHtml(j.location||'')}</p>
+ ${j.salary?`<p><b>💰 वेतन:</b> ${escapeHtml(j.salary)}</p>`:''}
+ ${j.details?`<p class="details">${escapeHtml(j.details)}</p>`:''}
+ ${apply?(safeUrl?`<a class="action apply" href="${escapeHtml(apply)}" target="_blank" rel="noopener noreferrer">Apply Online</a>`:`<p><b>Apply / Contact:</b> ${escapeHtml(apply)}</p>`):''}
+ ${admin?`<button data-approve="${escapeHtml(id)}" type="button">Approve</button> <button class="danger" data-delete="${escapeHtml(id)}" type="button">Delete</button>`:''}
+ </article>`;
 }
-
 function renderLive(data){
-const items=Object.entries(data||{});
-liveJobsEl.innerHTML=items.length
-?items.map(([id,j])=>jobCard(j,id)).join('')
-:'अभी कोई नौकरी उपलब्ध नहीं है।';
+ const items=Object.entries(data||{});
+ $('liveJobs').innerHTML=items.length?items.map(([id,j])=>jobCard(j,id)).join(''):'अभी कोई नौकरी उपलब्ध नहीं है। नई नौकरियाँ जल्द जोड़ी जाएँगी।';
 }
-
 function renderPending(data){
-const items=Object.entries(data||{});
-pendingJobsEl.innerHTML=items.length
-?items.map(([id,j])=>jobCard(j,id,true)).join('')
-:'कोई Pending post नहीं है।';
-
-pendingJobsEl.querySelectorAll('[data-approve]').forEach(btn=>{
-btn.onclick=async()=>{
-const id=btn.dataset.approve;
-try{
-const snapJob=data[id];
-await set(ref(db,'approvedJobs/'+id),snapJob);
-await remove(ref(db,'pendingJobs/'+id));
-}catch(e){
-alert('Approve error: '+e.message);
-}
-};
-});
-
-pendingJobsEl.querySelectorAll('[data-delete]').forEach(btn=>{
-btn.onclick=async()=>{
-const id=btn.dataset.delete;
-if(confirm('इस पोस्ट को Delete करें?')){
-try{
-await remove(ref(db,'pendingJobs/'+id));
-}catch(e){
-alert('Delete error: '+e.message);
-}
-}
-};
-});
+ const items=Object.entries(data||{});
+ $('pendingJobs').innerHTML=items.length?items.map(([id,j])=>jobCard(j,id,true)).join(''):'कोई Pending post नहीं है।';
+ $('pendingJobs').querySelectorAll('[data-approve]').forEach(btn=>{
+  btn.onclick=async()=>{
+   const id=btn.dataset.approve;
+   try{await set(ref(db,'approvedJobs/'+id),data[id]);await remove(ref(db,'pendingJobs/'+id));}
+   catch(e){alert('Approve error: '+e.message);}
+  };
+ });
+ $('pendingJobs').querySelectorAll('[data-delete]').forEach(btn=>{
+  btn.onclick=async()=>{
+   const id=btn.dataset.delete;
+   if(confirm('इस पोस्ट को Delete करें?')){
+    try{await remove(ref(db,'pendingJobs/'+id));}catch(e){alert('Delete error: '+e.message);}
+   }
+  };
+ });
 }
 
-postForm.addEventListener('submit',async e=>{
-e.preventDefault();
-postMsg.textContent='पोस्ट भेजी जा रही है...';
-try{
-const newRef=push(ref(db,'pendingJobs'));
-await set(newRef,{
-title:titleEl.value.trim(),
-org:orgEl.value.trim(),
-location:locationEl.value.trim(),
-salary:salaryEl.value.trim(),
-apply:applyEl.value.trim(),
-details:detailsEl.value.trim(),
-status:'pending',
-createdAt:Date.now()
+$('postForm').addEventListener('submit',async e=>{
+ e.preventDefault();
+ $('postMsg').textContent='पोस्ट भेजी जा रही है...';
+ try{
+  const newRef=push(ref(db,'pendingJobs'));
+  await set(newRef,{
+   title:$('title').value.trim(),org:$('org').value.trim(),
+   location:$('location').value.trim(),salary:$('salary').value.trim(),
+   apply:$('apply').value.trim(),details:$('details').value.trim(),
+   status:'pending',createdAt:Date.now()
+  });
+  $('postForm').reset();
+  $('postMsg').textContent='पोस्ट भेज दी गई। Admin Approval के बाद Live Jobs में दिखाई देगी।';
+ }catch(err){$('postMsg').textContent='पोस्ट नहीं हो सकी: '+err.message;}
 });
-postForm.reset();
-postMsg.textContent='पोस्ट भेज दी गई। Admin Approval के बाद दिखाई देगी।';
-}catch(err){
-postMsg.textContent='पोस्ट नहीं हो सकी: '+err.message;
-}
+onValue(ref(db,'approvedJobs'),snap=>renderLive(snap.val()),err=>$('liveJobs').textContent='Jobs load error: '+err.message);
+
+$('loginBtn').addEventListener('click',async()=>{
+ $('loginMsg').textContent='Login हो रहा है...';
+ try{await signInWithEmailAndPassword(auth,$('email').value,$('password').value);$('loginMsg').textContent='';}
+ catch(e){$('loginMsg').textContent='Login error: '+e.message;}
 });
-
-onValue(ref(db,'approvedJobs'),snap=>{
-renderLive(snap.val());
-},err=>{
-liveJobsEl.textContent='Jobs load error: '+err.message;
-});
-
-loginBtnEl.addEventListener('click',async()=>{
-loginMsgEl.textContent='Login...';
-try{
-await signInWithEmailAndPassword(auth,emailEl.value,passwordEl.value);
-loginMsgEl.textContent='';
-}catch(e){
-loginMsgEl.textContent='Login error: '+e.message;
-}
-});
-
-logoutBtnEl.addEventListener('click',()=>signOut(auth));
-
+$('logoutBtn').onclick=()=>signOut(auth);
+let pendingListenerStarted=false;
 onAuthStateChanged(auth,user=>{
-const isAdmin=!!user&&user.uid===ADMIN_UID;
-loginBoxEl.classList.toggle('hidden',isAdmin);
-adminBoxEl.classList.toggle('hidden',!isAdmin);
-
-if(user&&!isAdmin){
-adminStatusEl.textContent='यह अकाउंट Admin नहीं है।';
-signOut(auth);
-return;
-}
-
-if(isAdmin){
-adminStatusEl.textContent='Admin Login: '+user.email;
-
-onValue(ref(db,'pendingJobs'),snap=>{
-renderPending(snap.val()||{});
-},err=>{
-pendingJobsEl.textContent='Pending load error: '+err.message;
-});
-}else{
-pendingJobsEl.innerHTML='';
-}
+ const isAdmin=!!user&&user.uid===ADMIN_UID;
+ $('loginBox').classList.toggle('hidden',isAdmin);
+ $('adminBox').classList.toggle('hidden',!isAdmin);
+ if(user&&!isAdmin){
+  $('loginMsg').textContent='यह अकाउंट Admin नहीं है।';
+  signOut(auth);return;
+ }
+ if(isAdmin){
+  $('adminStatus').textContent='Admin Login: '+user.email;
+  if(!pendingListenerStarted){
+   pendingListenerStarted=true;
+   onValue(ref(db,'pendingJobs'),snap=>renderPending(snap.val()||{}),err=>$('pendingJobs').textContent='Pending load error: '+err.message);
+  }
+ }else{
+  pendingListenerStarted=false;
+  $('pendingJobs').innerHTML='';
+ }
 });
 </script>
 </body>
